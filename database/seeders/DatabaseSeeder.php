@@ -6,6 +6,7 @@ use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Person;
 use App\Models\Review;
+use App\Models\Staff;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,5 +27,7 @@ class DatabaseSeeder extends Seeder
         Review::factory(10)->create();
 
         Person::factory(40)->create();
+
+        Staff::factory(10)->create();
     }
 }
