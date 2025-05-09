@@ -16,4 +16,10 @@ class Movie extends Model
     public function genres()
     {
         return $this->belongsToMany(Genre::class);
-    }}
+    }
+
+    public function favoritedByUsers()
+    {
+        return $this->hasMany(UserFavoriteMovie::class);
+    }
+}
