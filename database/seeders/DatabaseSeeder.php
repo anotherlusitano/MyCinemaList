@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\UserFavoriteMovie;
 use App\Models\UserFavoritePerson;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\UserMovieProgress;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -35,5 +36,7 @@ class DatabaseSeeder extends Seeder
         UserFavoritePerson::factory(10)->create();
 
         UserFavoriteMovie::factory(10)->create();
+
+        UserMovieProgress::factory(10)->create();
     }
 }
