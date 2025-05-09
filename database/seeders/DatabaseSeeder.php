@@ -8,6 +8,7 @@ use App\Models\Person;
 use App\Models\Review;
 use App\Models\Staff;
 use App\Models\User;
+use App\Models\UserFavoritePerson;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -29,5 +30,7 @@ class DatabaseSeeder extends Seeder
         Person::factory(40)->create();
 
         Staff::factory(10)->create();
+
+        UserFavoritePerson::factory(10)->create();
     }
 }

@@ -13,4 +13,9 @@ class Person extends Model
     protected $table = 'people';
 
     protected $guarded = [];
+
+    public function favoritedByUsers()
+    {
+        return $this->hasMany(UserFavoritePerson::class);
+    }
 }
