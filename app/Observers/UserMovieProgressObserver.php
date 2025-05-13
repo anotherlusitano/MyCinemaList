@@ -11,11 +11,11 @@ class UserMovieProgressObserver
      */
     public function created(UserMovieProgress $userMovieProgress): void
     {
-        if ($userMovieProgress->watch_status === 'completed') {
-            $userMovieProgress->completed_watching_date = $userMovieProgress->completed_watching_date ?? now();
-        } else {
-            $userMovieProgress->completed_watching_date = null;
-        }
+//        if ($userMovieProgress->watch_status === 'completed') {
+//            $userMovieProgress->completed_watching_date = $userMovieProgress->completed_watching_date ?? now();
+//        } else {
+//            $userMovieProgress->completed_watching_date = null;
+//        }
     }
 
     /**
