@@ -10,7 +10,6 @@ use App\Models\Staff;
 use App\Models\User;
 use App\Models\UserFavoriteMovie;
 use App\Models\UserFavoritePerson;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\UserMovieProgress;
 use Illuminate\Database\Seeder;
 
@@ -23,7 +22,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        Movie::factory(40)->has(
+        Movie::factory(20)->has(
             Genre::factory(), 'genres',
         )->create();
 
@@ -37,6 +36,6 @@ class DatabaseSeeder extends Seeder
 
         UserFavoriteMovie::factory(10)->create();
 
-        UserMovieProgress::factory(10)->create();
+        UserMovieProgress::factory(40)->create();
     }
 }

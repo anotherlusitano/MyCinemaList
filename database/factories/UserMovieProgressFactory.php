@@ -19,11 +19,11 @@ class UserMovieProgressFactory extends Factory
     public function definition(): array
     {
         $status = $this->faker->randomElement(['completed', 'dropped', 'plan-to-watch']);
-        $completed = $status === 'completed' ? null : $this->faker->date();
+        $completed = $status === 'completed' ? $this->faker->date() : null;
 
         return [
             'user_id' => User::factory(),
-            'movie_id' => Movie::factory(),
+            'movie_id' => Movie::inRandomOrder()->first()->id,
             'watch_status' => $status,
             'score' => $status !== 'plan-to-watch' ? $this->faker->numberBetween(1, 10) : null,
             'completed_watching_date' => $completed,
