@@ -22,4 +22,9 @@ class Movie extends Model
     {
         return $this->hasMany(UserFavoriteMovie::class);
     }
+
+    public function movieProgressByUsers()
+    {
+        return $this->hasMany(UserMovieProgress::class);
+    }
 }
