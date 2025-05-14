@@ -1,4 +1,4 @@
-<nav class="bg-gray-900 text-white px-4 py-3 flex items-center justify-between mx-6">
+<nav class="bg-gray-900 text-white px-10 py-3 flex items-center justify-between">
     <!-- Logo -->
     <a class="text-2xl font-bold font-poetsen" href="/">
         MyCinemaList
