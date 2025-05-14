@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="pl-10 pt-10">
-        <h3 class="font-semibold leading-tight text-white text-xl mb-2">New Movies</h3>
+        <h3 class="font-semibold leading-tight text-black text-xl mb-2">New Movies</h3>
         <div class="flex gap-3 flex-row overflow-scroll scroll-smooth">
             @foreach($movies_released as $movie)
                 <x-poster
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="pl-10 pt-10">
-        <h3 class="font-semibold leading-tight text-white text-xl mb-2">Top Movies</h3>
+        <h3 class="font-semibold leading-tight text-black  text-xl mb-2">Top Movies</h3>
         <div class="flex gap-3 flex-row overflow-scroll scroll-smooth">
             @foreach($top_movies as $movie)
                 <x-poster
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="pl-10 pt-10">
-        <h3 class="font-semibold leading-tight text-white text-xl mb-2">Movies to be Released</h3>
+        <h3 class="font-semibold leading-tight text-black text-xl mb-2">Movies to be Released</h3>
         <div class="flex gap-3 flex-row overflow-scroll scroll-smooth">
             @foreach($movies_for_release as $movie)
                 <x-poster
