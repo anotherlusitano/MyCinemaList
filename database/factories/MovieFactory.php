@@ -21,7 +21,7 @@ class MovieFactory extends Factory
             'synopsis' => fake()->text(200),
             'release_year' => fake()->year(),
             'duration' => fake()->biasedNumberBetween(35, 230),
-            'picture' => fake()->imageUrl(),
+            'picture' => 'https://picsum.photos/id/' . rand(1, 600) . '/300/450',
             'rating' => fake()->randomElement(['all ages', 'kids', 'teens', 'adults']),
             'status' => fake()->randomElement(['released', 'unreleased', 'cancelled']),
         ];
