@@ -6,7 +6,7 @@
                 <x-poster
                     :title="$movie->title"
                     :release_year="$movie->release_year"
-                    :score="0"
+                    :score="round($movie->movie_progress_by_users_avg_score, 1) ?? 'N/A'"
                     :duration="$movie->duration"
                     :picture="$movie->picture"
                 />

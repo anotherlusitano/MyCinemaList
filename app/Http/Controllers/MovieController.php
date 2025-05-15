@@ -10,12 +10,15 @@ class MovieController extends Controller
     {
         $movies_released = Movie::query()
             ->where('status', 'released')
+            ->withAvg('movieProgressByUsers', 'score')
             ->orderByDesc('release_year')
+            ->orderByDesc('movie_progress_by_users_avg_score')
             ->latest()
             ->limit(20)
             ->get();
 
         $top_movies = Movie::query()
+            ->where('status', 'released')
             ->withAvg('movieProgressByUsers', 'score')
             ->orderByDesc('movie_progress_by_users_avg_score')
             ->take(20)
