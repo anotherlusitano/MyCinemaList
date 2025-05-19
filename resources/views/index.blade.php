@@ -4,6 +4,7 @@
         <div class="flex gap-3 flex-row overflow-x-auto scroll-smooth movies-released-carousel">
             @foreach($movies_released as $movie)
                 <x-poster
+                    :id="$movie->id"
                     :title="$movie->title"
                     :release_year="$movie->release_year"
                     :score="round($movie->movie_progress_by_users_avg_score, 1) ?? 'N/A'"
@@ -20,6 +21,7 @@
         <div class="flex gap-3 flex-row overflow-x-auto scroll-smooth top-movies-carousel">
             @foreach($top_movies as $movie)
                 <x-poster
+                    :id="$movie->id"
                     :title="$movie->title"
                     :release_year="$movie->release_year"
                     :score="round($movie->movie_progress_by_users_avg_score, 1) ?? 'N/A'"
@@ -36,6 +38,7 @@
         <div class="flex gap-3 flex-row overflow-x-auto scroll-smooth movies-for-release-carousel">
             @foreach($movies_for_release as $movie)
                 <x-poster
+                    :id="$movie->id"
                     :title="$movie->title"
                     :release_year="$movie->release_year"
                     :score="'N/A'"
