@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div class="flex bg-white p-6 rounded shadow-lg max-w-4xl mx-auto">
+    <div class="flex bg-white p-6">
         {{-- Movie Poster --}}
-        <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-48 h-auto rounded mb-4 md:mb-0 md:mr-6">
+        <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded mb-4 md:mb-0 md:mr-6">
 
         {{-- Content --}}
-        <div class="flex-1">
+        <div class="flex-1 mr-1">
             <h2 class="text-2xl font-bold">{{ $movie->title }} ({{ $movie->release_year }})</h2>
 
             {{-- Stars + Score --}}
@@ -13,7 +13,11 @@
             />
 
             {{-- Synopsis --}}
-            <p><span class="font-semibold">Sinopse</span><br>{{ $movie->synopsis }}</p>
+            <p class="max-w-xl">
+                <span class="font-semibold">Sinopse</span>
+                <br>
+                {{ $movie->synopsis }}
+            </p>
 
             {{-- Details --}}
             <div class="mt-4 space-y-1 text-sm text-gray-700">
@@ -40,5 +44,39 @@
                 </button>
             </div>
         </div>
+
+        {{-- Staff --}}
+        <div>
+            <h2 class="text-2xl font-semibold mb-4">Staff</h2>
+
+            {{-- Staff Details --}}
+            <ul class="space-y-1">
+                @foreach ($staff->take(4) as $member)
+                    @php
+                        $person = $member->person;
+
+                        $person_name = $person->first_name . " " . $person->last_name;
+                        $person_picture = $person->picture;
+                    @endphp
+
+                    <li class="flex items-center bg-gray-100 even:bg-white p-2">
+                        <img src="{{ $person_picture }}" alt="{{ $person_name }}"
+                             class="w-16 h-16 object-cover rounded mr-4">
+                        <div>
+                            <a href="#" class="text-blue-600 font-medium hover:underline">{{ $person_name }}</a>
+                            <div class="text-gray-700 text-sm">{{ $member->role }}</div>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+
+            {{-- More Staff --}}
+            @if(count($staff) > 4)
+                <div class="text-center mt-4">
+                    <a href="#" class="text-blue-600 hover:underline">More staff</a>
+                </div>
+            @endif
+        </div>
     </div>
+
 </x-app-layout>

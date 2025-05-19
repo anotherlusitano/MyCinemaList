@@ -27,4 +27,9 @@ class Movie extends Model
     {
         return $this->hasMany(UserMovieProgress::class);
     }
+
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
+    }
 }
