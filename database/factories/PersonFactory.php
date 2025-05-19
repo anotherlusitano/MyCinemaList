@@ -21,7 +21,7 @@ class PersonFactory extends Factory
             'last_name' => fake()->lastName(),
             'birthday' => fake()->date(),
             'description' => fake()->text(200),
-            'picture' => fake()->imageUrl(),
+            'picture' => 'https://xsgames.co/randomusers/assets/avatars/male/' . rand(1, 70) . '.jpg',
         ];
     }
 }
