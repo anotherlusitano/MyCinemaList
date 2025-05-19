@@ -37,4 +37,14 @@ class MovieController extends Controller
             'movies_for_release' => $movies_for_release,
         ]);
     }
+
+    public function show(Movie $movie)
+    {
+        $score = $movie->movieProgressByUsers()->avg('score');
+
+        return view('movies.show', [
+            'movie' => $movie,
+            'score' => $score
+        ]);
+    }
 }
