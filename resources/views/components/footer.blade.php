@@ -1,4 +1,4 @@
-<footer class="bg-gray-900 text-white font-poetsen py-6 text-sm mt-10">
+<footer class="bg-gray-900 text-white font-poetsen py-6 text-sm mt-10 bottom-0 absolute w-full h-28">
     <div
         class="max-w-[335px] mx-auto px-4 flex flex-col items-center space-y-2 text-center sm:flex-row sm:justify-between sm:text-left sm:space-y-0">
         <!-- Left Side -->
