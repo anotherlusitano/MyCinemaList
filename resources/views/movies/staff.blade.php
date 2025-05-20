@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="flex flex-row min-h-4/5 w-full">
-        <div class="flex flex-col items-center mt-6 max-w-lg w-1/4">
+    <div class="flex flex-row min-h-4/5 w-full mt-6">
+        <div class="flex flex-col items-center max-w-lg w-1/4">
             {{-- Movie Poster --}}
             <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
