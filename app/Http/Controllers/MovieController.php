@@ -48,4 +48,14 @@ class MovieController extends Controller
             'staff' => $movie->staff
         ]);
     }
+
+    public function staff(Movie $movie)
+    {
+        $staff = $movie->staff()->paginate(8);
+
+        return view('movies.staff', [
+            'movie' => $movie,
+            'staff' => $staff
+        ]);
+    }
 }

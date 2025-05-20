@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'index']);
 Route::get('/movies/{movie}', [MovieController::class, 'show']);
+Route::get('/movies/{movie}/staff', [MovieController::class, 'staff']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

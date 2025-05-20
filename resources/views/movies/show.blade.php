@@ -75,7 +75,7 @@
             {{-- More Staff --}}
             @if(count($staff) > 4)
                 <div class="text-center mt-4">
-                    <a href="#" class="text-blue-600 hover:underline">More staff</a>
+                    <a href="/movies/{{ $movie->id }}/staff" class="text-blue-600 hover:underline">More staff</a>
                 </div>
             @endif
         </div>
