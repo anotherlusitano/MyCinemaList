@@ -30,7 +30,8 @@
                     <img src="{{ $person_picture }}" alt="{{ $person_name }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
-                        <a href="#" class="text-blue-600 font-medium hover:underline">{{ $person_name }}</a>
+                        <a href="/people/{{ $person->id }}"
+                           class="text-blue-600 font-medium hover:underline">{{ $person_name }}</a>
                         <div class="text-gray-700 text-sm">{{ $member->role }}</div>
                     </div>
                 </li>
