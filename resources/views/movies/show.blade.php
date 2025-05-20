@@ -73,6 +73,13 @@
                 @endforeach
             </ul>
 
+            @if($staff->isEmpty())
+                <div class="text-center text-gray-500">
+                    <span class="text-xl">( ._.)</span>
+                    <p class="text-lg font-medium">This movie has no staff</p>
+                </div>
+            @endif
+
             {{-- More Staff --}}
             @if(count($staff) > 4)
                 <div class="text-center mt-4">

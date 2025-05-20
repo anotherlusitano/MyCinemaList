@@ -37,6 +37,13 @@
                 </li>
             @endforeach
 
+            @if($staff->isEmpty())
+                <div class="text-center text-gray-500">
+                    <span class="text-xl">( ._.)</span>
+                    <p class="text-lg font-medium">This movie has no staff</p>
+                </div>
+            @endif
+
             {{ $staff->links() }}
         </div>
     </div>
