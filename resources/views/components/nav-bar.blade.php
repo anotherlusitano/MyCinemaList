@@ -24,16 +24,7 @@
 
     <!-- Profile Icon -->
     @if(Auth::check())
-        <div class="ml-4">
-            <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-                <!-- Simple user icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" fill="none"
-                     viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M5.121 17.804A9.956 9.956 0 0112 15c2.21 0 4.247.715 5.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-            </div>
-        </div>
+        <x-profile-icon/>
     @else
         <a href="/login" class="bg-indigo-500 hover:bg-indigo-600 text-black font-medium py-2 w-40 text-xl text-center">
             Login
