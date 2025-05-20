@@ -5,12 +5,14 @@
             <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
             {{-- Favorite Button --}}
-            <div class="mt-4">
-                <button class="flex items-center text-blue-600 font-semibold hover:underline">
-                    <x-gmdi-favorite-border-s class="w-6 h-6"/>
-                    Add favorite
-                </button>
-            </div>
+            @if(Auth::check())
+                <div class="mt-4">
+                    <button class="flex items-center text-blue-600 font-semibold hover:underline">
+                        <x-gmdi-favorite-border-s class="w-6 h-6"/>
+                        Add favorite
+                    </button>
+                </div>
+            @endif
         </div>
 
         {{-- Content --}}
