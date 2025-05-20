@@ -48,6 +48,13 @@
                 </li>
             @endforeach
 
+            @if($staff->isEmpty())
+                <div class="max-w-fit text-center text-gray-500">
+                    <span class="text-xl">¯\_(ツ)_/¯</span>
+                    <p class="text-lg font-medium">This person hasn't worked on any movies</p>
+                </div>
+            @endif
+
             {{ $staff->links() }}
         </div>
     </div>
