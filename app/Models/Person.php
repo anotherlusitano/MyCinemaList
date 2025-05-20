@@ -18,4 +18,9 @@ class Person extends Model
     {
         return $this->hasMany(UserFavoritePerson::class);
     }
+
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
+    }
 }
