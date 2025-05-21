@@ -61,4 +61,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserFavoriteMovie::class);
     }
+
+    // Returns true if the user have that movie as a favorite
+    public function hasFavoriteMovie(Movie $movie): bool
+    {
+        return $this->favoriteMovies->doesntContain('movie_id', $movie->id);
+    }
 }
