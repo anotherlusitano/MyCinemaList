@@ -15,6 +15,9 @@ Route::get('/people/{person}', [PersonController::class, 'show']);
 Route::post('/movies/{movie}/favorite', [UserFavoriteController::class, 'favoriteMovie']);
 Route::delete('/movies/{movie}/remove-favorite', [UserFavoriteController::class, 'removeFavoriteMovie']);
 
+Route::post('/people/{person}/favorite', [UserFavoriteController::class, 'favoritePerson']);
+Route::delete('/people/{person}/remove-favorite', [UserFavoriteController::class, 'removeFavoritePerson']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
