@@ -3,6 +3,7 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserFavoriteController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ Route::delete('/movies/{movie}/remove-favorite', [UserFavoriteController::class,
 
 Route::post('/people/{person}/favorite', [UserFavoriteController::class, 'favoritePerson']);
 Route::delete('/people/{person}/remove-favorite', [UserFavoriteController::class, 'removeFavoritePerson']);
+
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
