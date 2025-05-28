@@ -13,6 +13,7 @@
         "davidhsianturi/blade-bootstrap-icons": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
+        "livewire/livewire": "^3.6",
         "secondnetwork/blade-tabler-icons": "^3.33"
     },
     "require-dev": {
