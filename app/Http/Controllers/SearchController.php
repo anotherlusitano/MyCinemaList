@@ -16,8 +16,10 @@ class SearchController extends Controller
 
         switch ($type) {
             case 'people':
+                $sort = $request->query('sort') ?? 'first_name|asc';
+
                 return view('search.people', [
-                    'people' => $this->filterPeople($query)->paginate(8),
+                    'people' => $this->filterPeople($query, $sort)->paginate(8),
                 ]);
             case 'movies':
                 return view('search.movies', [
@@ -39,12 +41,14 @@ class SearchController extends Controller
         }
     }
 
-    public function filterPeople(string $name)
+    public function filterPeople(string $name, string $sort = "first_name|asc")
     {
+        [$field, $direction] = explode('|', $sort);
+
         return Person::query()->where(function ($query) use ($name) {
             $query->where('first_name', 'like', "%$name%");
             $query->orWhere('last_name', 'like', "%$name%");
-        });
+        })->orderBy($field, $direction);
     }
 
     public function filterUsers(string $name, string $sort_alpha = "asc", string $sort_date = "asc")
