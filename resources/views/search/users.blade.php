@@ -17,13 +17,14 @@
                     <x-tabler-search/>
                 </button>
             </div>
-            <select name="sort_alpha" class="mb-4">
-                <option value="asc" {{ request('sort_alpha') == 'asc' ? 'selected' : '' }}>A-z</option>
-                <option value="desc" {{ request('sort_alpha') == 'desc' ? 'selected' : '' }}>Z-a</option>
-            </select>
-            <select name="sort_date">
-                <option value="asc" {{ request('sort_date') == 'asc' ? 'selected' : '' }}>Recent</option>
-                <option value="desc" {{ request('sort_date') == 'desc' ? 'selected' : '' }}>Oldest</option>
+            <select name="sort" class="mb-4">
+                <option value="username|asc" {{ request('sort') == 'username|asc' ? 'selected' : '' }}>A-z</option>
+                <option value="username|desc" {{ request('sort') == 'username|desc' ? 'selected' : '' }}>Z-a
+                </option>
+                <option value="created_at|desc" {{ request('sort') == 'created_at|desc' ? 'selected' : '' }}>Recent
+                </option>
+                <option value="created_at|asc" {{ request('sort') == 'created_at|asc' ? 'selected' : '' }}>Oldest
+                </option>
             </select>
         </form>
         <div class="w-full max-w-4xl">

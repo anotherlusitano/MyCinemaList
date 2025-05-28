@@ -31,11 +31,10 @@ class SearchController extends Controller
                     'movies' => $this->filterMovies($query, $sort, $status, $rating, $genre)->paginate(8),
                 ]);
             case 'users':
-                $sort_alpha = $request->query('sort_alpha') ?? 'asc';
-                $sort_date = $request->query('sort_date') ?? 'asc';
+                $sort = $request->query('sort') ?? 'username|asc';
 
                 return view('search.users', [
-                    'users' => $this->filterUsers($query, $sort_alpha, $sort_date)->paginate(8),
+                    'users' => $this->filterUsers($query, $sort)->paginate(8),
                 ]);
             default:
                 return view('search.index', [
@@ -56,13 +55,13 @@ class SearchController extends Controller
         })->orderBy($field, $direction);
     }
 
-    public function filterUsers(string $name, string $sort_alpha = "asc", string $sort_date = "asc")
+    public function filterUsers(string $name, string $sort = "username|asc")
     {
+        [$field, $direction] = explode('|', $sort);
+
         return User::query()->where(function ($query) use ($name) {
             $query->where('username', 'like', "%$name%");
-        })
-            ->orderBy('username', $sort_alpha)
-            ->orderBy('created_at', $sort_date);
+        })->orderBy($field, $direction);
     }
 
     public function filterMovies(string $name, string $sort = "title|asc", string $status = '', string $rating = '', string $genre = '')
