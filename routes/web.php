@@ -5,6 +5,7 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserFavoriteController;
+use App\Http\Controllers\UserMovieProgressController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'index']);
@@ -18,6 +19,8 @@ Route::delete('/movies/{movie}/remove-favorite', [UserFavoriteController::class,
 
 Route::post('/people/{person}/favorite', [UserFavoriteController::class, 'favoritePerson']);
 Route::delete('/people/{person}/remove-favorite', [UserFavoriteController::class, 'removeFavoritePerson']);
+
+Route::post('/user-movie-progress', [UserMovieProgressController::class, 'store'])->name('user-movie-progress.store');
 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 

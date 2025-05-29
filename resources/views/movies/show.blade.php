@@ -1,3 +1,4 @@
+@php use App\Models\UserMovieProgress; @endphp
 <x-app-layout>
     <div class="flex bg-white p-6">
         <div class="flex flex-col items-center">
@@ -46,7 +47,7 @@
             </p>
 
             {{-- Details --}}
-            <div class="mt-4 space-y-1 text-sm text-gray-700">
+            <div class="mt-4 mb-4 space-y-1 text-sm text-gray-700">
                 <p><span class="font-semibold">Duration:</span> {{ $movie->duration }} minutos</p>
                 <p><span class="font-semibold">Rating:</span> {{ $movie->rating }}</p>
                 <p><span class="font-semibold">Status:</span> {{ $movie->status }}</p>
@@ -57,6 +58,21 @@
                     @endforeach
                 </p>
             </div>
+
+            @if(Auth::check())
+                @php
+                    $movieProgress = UserMovieProgress::query()
+                        ->where('user_id', auth()->id())
+                        ->where('movie_id', $movie->id)
+                        ->first();
+                @endphp
+
+                @if (!$movieProgress)
+                    <x-add-to-list-button :movie-id="$movie->id"/>
+                @else
+                    @livewire('user-movie-progress-dropdown', ['userMovieProgressId' => $movieProgress->id])
+                @endif
+            @endif
         </div>
 
         {{-- Staff --}}
