@@ -11,12 +11,6 @@ class UserMovieProgress extends Model
     /** @use HasFactory<\Database\Factories\UserMovieProgressFactory> */
     use HasFactory;
 
-    /**
-     * @var \Illuminate\Support\Carbon|mixed
-     */
-    public mixed $watch_status;
-    public mixed $completed_watching_date;
-
     protected $fillable = [
         'user_id',
         'movie_id',
