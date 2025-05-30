@@ -81,7 +81,7 @@
                     <img src="{{ $user->picture }}" alt="{{ $user->username }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
-                        <a href="#"
+                        <a href="/users/{{ $user->id }}"
                            class="text-blue-600 font-medium hover:underline">{{ $user->username }}</a>
                         <div class="text-gray-700 text-sm">Created at {{ $account_created}}</div>
                     </div>

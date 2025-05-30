@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,22 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function show(User $user)
+    {
+        $movieProgressList = $user->movieProgessList()->get();
+        $favoritePeople = $user->favoritePeople()->get();
+        $favoriteMovies = $user->favoriteMovies()->get();
+        $reviews = $user->reviews()->get();
+
+        return view('profile.show', [
+            'user' => $user,
+            'reviews' => $reviews,
+            'favoriteMovies' => $favoriteMovies,
+            'favoritePeople' => $favoritePeople,
+            'movieProgressList' => $movieProgressList,
+        ]);
+    }
+
     /**
      * Display the user's profile form.
      */
