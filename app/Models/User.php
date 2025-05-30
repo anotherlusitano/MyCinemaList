@@ -62,6 +62,11 @@ class User extends Authenticatable
         return $this->hasMany(UserFavoriteMovie::class);
     }
 
+    public function movieProgessList()
+    {
+        return $this->hasMany(UserMovieProgress::class);
+    }
+
     // Returns true if the user have that movie as a favorite
     public function hasFavoriteMovie(Movie $movie): bool
     {
