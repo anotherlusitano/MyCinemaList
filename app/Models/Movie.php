@@ -32,4 +32,9 @@ class Movie extends Model
     {
         return $this->hasMany(Staff::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
