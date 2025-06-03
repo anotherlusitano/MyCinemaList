@@ -45,7 +45,8 @@ class MovieController extends Controller
         return view('movies.show', [
             'movie' => $movie,
             'score' => $score,
-            'staff' => $movie->staff
+            'staff' => $movie->staff,
+            'reviews' => $movie->reviews()->get()
         ]);
     }
 
