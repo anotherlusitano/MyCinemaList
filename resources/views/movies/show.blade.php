@@ -117,6 +117,53 @@
         </div>
     </div>
 
+    <div class="flex flex-col items-center mt-6">
+        <div class="w-1/2">
+            <h2 class="text-black text-xl">Reviews</h2>
+            <hr class="border-black">
+        </div>
+
+        <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
+            <a href="#" class="flex flex-row items-center text-black hover:underline">
+                <span>
+                    <x-tabler-plus class="w-4 h-4"/>
+                </span>
+                Write review
+            </a>
+            <div class="w-1/2">
+                <div class="flex flex-row justify-between px-2 pb-2">
+                    <x-uiw-like-o class="w-6 h-6 text-blue-600"/>
+                    <x-gmdi-sentiment-neutral-r class="w-6 h-6 text-gray-600"/>
+                    <x-uiw-dislike-o class="w-6 h-6 text-red-600"/>
+                </div>
+                <x-recommendations-chart :reviews="$reviews"/>
+            </div>
+            <a href="#" class="flex flex-row items-center text-black hover:underline">
+                <span>
+                    <x-gmdi-arrow-forward-ios class="w-4 h-4"/>
+                </span>
+                All reviews
+            </a>
+        </div>
+
+        @foreach($reviews->take(3) as $review)
+            <x-review-card :review="$review"/>
+        @endforeach
+
+        @if(count($reviews) > 3)
+            <div class="text-center mt-4">
+                <a href="#" class="text-blue-600 hover:underline">More Reviews</a>
+            </div>
+        @endif
+
+        @if($reviews->isEmpty())
+            <div class="text-center text-gray-500 mt-6">
+                <span class="text-xl">( ._.)</span>
+                <p class="text-lg font-medium">This movie has no reviews</p>
+            </div>
+        @endif
+    </div>
+
     <form method="POST" action="/movies/{{ $movie->id }}/favorite" id="add-favorite-form" class="hidden">
         @csrf
     </form>
