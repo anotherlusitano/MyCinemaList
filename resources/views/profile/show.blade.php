@@ -78,7 +78,7 @@
 
             @if(count($reviews) > 0)
                 <div class="mt-4">
-                    <a href="#"
+                    <a href="/users/{{ $user->id }}/reviews"
                        class="text-blue-600 hover:underline">See All Reviews</a>
                 </div>
             @endif

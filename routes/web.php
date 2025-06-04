@@ -27,6 +27,7 @@ Route::post('/user-movie-progress', [UserMovieProgressController::class, 'store'
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/users/{user}', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/users/{user}/reviews', [ReviewController::class, 'userReviews']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
