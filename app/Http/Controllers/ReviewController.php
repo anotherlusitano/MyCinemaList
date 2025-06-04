@@ -11,7 +11,8 @@ class ReviewController extends Controller
         $reviews = $movie->reviews()->paginate(3);
 
         return view('movies.reviews', [
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            "movie" => $movie
         ]);
     }
 }
