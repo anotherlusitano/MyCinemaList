@@ -69,5 +69,26 @@
                 </div>
             @endif
         </div>
+        <div class="max-w-xl ml-4">
+            <h2 class="text-2xl font-semibold">Recent Review</h2>
+
+            @foreach($reviews->take(1) as $review)
+                <x-review-card :review="$review" class="max-w-lg max-h-60"/>
+            @endforeach
+
+            @if(count($reviews) > 0)
+                <div class="mt-4">
+                    <a href="#"
+                       class="text-blue-600 hover:underline">See All Reviews</a>
+                </div>
+            @endif
+
+            @if($reviews->isEmpty())
+                <div class="max-w-fit text-center text-gray-500">
+                    <span class="text-xl">:(</span>
+                    <p class="text-lg font-medium">{{ $user->username }} doesn't have any reviews...</p>
+                </div>
+            @endif
+        </div>
     </div>
 </x-app-layout>
