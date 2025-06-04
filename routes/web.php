@@ -3,6 +3,7 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserFavoriteController;
 use App\Http\Controllers\UserMovieProgressController;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MovieController::class, 'index']);
 Route::get('/movies/{movie}', [MovieController::class, 'show']);
 Route::get('/movies/{movie}/staff', [MovieController::class, 'staff']);
+Route::get('/movies/{movie}/reviews', [ReviewController::class, 'movieReviews']);
 
 Route::get('/people/{person}', [PersonController::class, 'show']);
 

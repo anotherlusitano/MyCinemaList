@@ -138,7 +138,7 @@
                 </div>
                 <x-recommendations-chart :reviews="$reviews"/>
             </div>
-            <a href="#" class="flex flex-row items-center text-black hover:underline">
+            <a href="/movies/{{ $movie->id }}/reviews" class="flex flex-row items-center text-black hover:underline">
                 <span>
                     <x-gmdi-arrow-forward-ios class="w-4 h-4"/>
                 </span>
@@ -152,7 +152,7 @@
 
         @if(count($reviews) > 3)
             <div class="text-center mt-4">
-                <a href="#" class="text-blue-600 hover:underline">More Reviews</a>
+                <a href="/movies/{{ $movie->id }}/reviews" class="text-blue-600 hover:underline">More Reviews</a>
             </div>
         @endif
 
