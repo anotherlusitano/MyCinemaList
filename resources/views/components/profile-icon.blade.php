@@ -18,11 +18,11 @@
         x-transition
         class="absolute right-0 mt-2 w-48 rounded-2xl bg-gray-100 text-black shadow-lg z-50 p-4 space-y-4"
     >
-        <a href="#" class="flex items-center text-lg space-x-2 hover:underline">
+        <a href="/users/{{ $user->id }}" class="flex items-center text-lg space-x-2 hover:underline">
             <x-bi-person-fill class="w-5 h-5"/>
             <span>Profile</span>
         </a>
-        <a href="#" class="flex items-center text-lg space-x-2 hover:underline">
+        <a href="/users/{{ $user->id }}/reviews" class="flex items-center text-lg space-x-2 hover:underline">
             <x-gmdi-rate-review-o class="w-5 h-5"/>
             <span>Reviews</span>
         </a>
