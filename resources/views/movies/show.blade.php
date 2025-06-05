@@ -59,7 +59,7 @@
                 </p>
             </div>
 
-            @if(Auth::check())
+            @if(Auth::check() and $movie->status === 'released')
                 @php
                     $movieProgress = UserMovieProgress::query()
                         ->where('user_id', auth()->id())
