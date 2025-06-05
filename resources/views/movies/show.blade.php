@@ -123,28 +123,35 @@
             <hr class="border-black">
         </div>
 
-        <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
-            <a href="#" class="flex flex-row items-center text-black hover:underline">
-                <span>
-                    <x-tabler-plus class="w-4 h-4"/>
-                </span>
-                Write review
-            </a>
-            <div class="w-1/2">
-                <div class="flex flex-row justify-between px-2 pb-2">
-                    <x-uiw-like-o class="w-6 h-6 text-blue-600"/>
-                    <x-gmdi-sentiment-neutral-r class="w-6 h-6 text-gray-600"/>
-                    <x-uiw-dislike-o class="w-6 h-6 text-red-600"/>
+        @if($movie->status === 'released')
+            <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
+                @if(Auth::check())
+                    <a href="#" class="flex flex-row items-center text-black hover:underline">
+                        <span>
+                            <x-tabler-plus class="w-4 h-4"/>
+                        </span>
+                        Write review
+                    </a>
+                @else
+                    <div></div>
+                @endif
+                <div class="w-1/2">
+                    <div class="flex flex-row justify-between px-2 pb-2">
+                        <x-uiw-like-o class="w-6 h-6 text-blue-600"/>
+                        <x-gmdi-sentiment-neutral-r class="w-6 h-6 text-gray-600"/>
+                        <x-uiw-dislike-o class="w-6 h-6 text-red-600"/>
+                    </div>
+                    <x-recommendations-chart :reviews="$reviews"/>
                 </div>
-                <x-recommendations-chart :reviews="$reviews"/>
-            </div>
-            <a href="/movies/{{ $movie->id }}/reviews" class="flex flex-row items-center text-black hover:underline">
+                <a href="/movies/{{ $movie->id }}/reviews"
+                   class="flex flex-row items-center text-black hover:underline">
                 <span>
                     <x-gmdi-arrow-forward-ios class="w-4 h-4"/>
                 </span>
-                All reviews
-            </a>
-        </div>
+                    All reviews
+                </a>
+            </div>
+        @endif
 
         @foreach($reviews->take(3) as $review)
             <x-review-card :review="$review"/>
