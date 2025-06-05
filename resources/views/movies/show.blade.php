@@ -150,12 +150,6 @@
             <x-review-card :review="$review"/>
         @endforeach
 
-        @if(count($reviews) > 3)
-            <div class="text-center mt-4">
-                <a href="/movies/{{ $movie->id }}/reviews" class="text-blue-600 hover:underline">More Reviews</a>
-            </div>
-        @endif
-
         @if($reviews->isEmpty())
             <div class="text-center text-gray-500 mt-6">
                 <span class="text-xl">( ._.)</span>
