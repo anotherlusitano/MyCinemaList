@@ -19,7 +19,7 @@ class ReviewController extends Controller
 
     public function userReviews(User $user)
     {
-        $reviews = $user->reviews()->paginate(3);
+        $reviews = $user->reviews()->orderByDesc('created_at')->paginate(3);
 
         return view('profile.reviews', [
             'reviews' => $reviews,
