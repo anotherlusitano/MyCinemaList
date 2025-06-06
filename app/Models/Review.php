@@ -13,7 +13,7 @@ class Review extends Model
 
     protected $table = 'reviews';
 
-    protected $fillable = ['text', 'recommendation'];
+    protected $fillable = ['movie_id', 'user_id', 'text', 'recommendation'];
 
     public function movie(): BelongsTo
     {
