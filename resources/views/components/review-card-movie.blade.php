@@ -10,7 +10,6 @@
 
 <div
     x-data="{ expanded: false }"
-    :style="expanded ? 'height: auto' : 'height: 350px'"
     {{ $attributes->merge(['class' => "w-full max-w-4xl mt-6 rounded-xl border border-gray-200 shadow bg-white p-6 overflow-hidden transition-all duration-300 $class"]) }}
 >
     <div class="flex items-start justify-between">
