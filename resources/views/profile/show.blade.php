@@ -73,7 +73,7 @@
             <h2 class="text-2xl font-semibold">Recent Review</h2>
 
             @foreach($reviews->take(1) as $review)
-                <x-review-card :review="$review" class="max-w-lg max-h-60"/>
+                <x-review-card-movie :review="$review" class="max-w-lg max-h-60"/>
             @endforeach
 
             @if(count($reviews) > 0)
