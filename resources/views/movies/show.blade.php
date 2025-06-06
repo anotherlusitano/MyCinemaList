@@ -126,12 +126,21 @@
         @if($movie->status === 'released')
             <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
                 @if(Auth::check())
-                    <a href="#" class="flex flex-row items-center text-black hover:underline">
-                        <span>
+                    <div x-data="{ showModal: {{ $errors->has('text') ? 'true' : 'false' }} }"
+                         @keydown.escape.window="showModal = false"
+                         class="flex flex-row items-center text-black hover:underline"
+                    >
+                        <!-- Write review button -->
+                        <span href="#"
+                              @click.prevent="showModal = true"
+                              class="flex flex-row items-center text-black hover:underline cursor-pointer">
                             <x-tabler-plus class="w-4 h-4"/>
+                            Write review
                         </span>
-                        Write review
-                    </a>
+
+                        <!-- Popup to create review -->
+                        <x-review-popup :movie-id="$movie->id"/>
+                    </div>
                 @else
                     <div></div>
                 @endif
