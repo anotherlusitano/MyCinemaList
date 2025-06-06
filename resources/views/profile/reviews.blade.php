@@ -10,9 +10,9 @@
                 </a>
             </div>
         </div>
-        <div class="w-auto">
+        <div class="w-full">
             @foreach($reviews as $review)
-                <x-review-card :review="$review"/>
+                <x-review-card-movie :review="$review"/>
             @endforeach
 
             @if($reviews->isEmpty())
