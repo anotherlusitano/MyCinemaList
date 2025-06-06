@@ -22,7 +22,9 @@
                 </div>
             @endif
 
-            {{ $reviews->links() }}
+            <div class="max-w-4xl">
+                {{ $reviews->links() }}
+            </div>
         </div>
     </div>
 </x-app-layout>
