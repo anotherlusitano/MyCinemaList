@@ -17,7 +17,7 @@ class ProfileController extends Controller
         $movieProgressList = $user->movieProgessList()->get();
         $favoritePeople = $user->favoritePeople()->get();
         $favoriteMovies = $user->favoriteMovies()->get();
-        $reviews = $user->reviews()->get();
+        $reviews = $user->reviews()->orderByDesc('created_at')->get();
 
         return view('profile.show', [
             'user' => $user,
