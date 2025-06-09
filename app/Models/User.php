@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
+    public function review(Movie $movie)
+    {
+        return $this->reviews()->where('movie_id', $movie->id)->first();
+    }
+
     public function favoritePeople()
     {
         return $this->hasMany(UserFavoritePerson::class);
