@@ -141,7 +141,7 @@
                             <span href="#"
                                   @click.prevent="showModal = true"
                                   class="flex flex-row items-center text-black hover:underline cursor-pointer">
-                            <x-tabler-plus class="w-4 h-4"/>
+                            <x-tabler-edit class="w-4 h-4 mr-1"/>
                             Edit review
                         </span>
 
