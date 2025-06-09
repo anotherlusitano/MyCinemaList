@@ -27,6 +27,21 @@ class ReviewController extends Controller
         return redirect()->back()->with('success', 'Review submitted!');
     }
 
+    public function update(Review $review)
+    {
+        request()->validate([
+            'recommendation' => ['required', 'in:recommended,mixed feelings,not recommended'],
+            'text' => ['required', 'string', 'min:50', 'max:1000'],
+        ]);
+
+        $review->update([
+            'recommendation' => request('recommendation'),
+            'text' => request('text'),
+        ]);
+
+        return redirect()->back();
+    }
+
     public function movieReviews(Movie $movie)
     {
         $reviews = $movie->reviews()->paginate(3);
