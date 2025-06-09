@@ -15,6 +15,7 @@ Route::get('/movies/{movie}/staff', [MovieController::class, 'staff']);
 Route::get('/movies/{movie}/reviews', [ReviewController::class, 'movieReviews']);
 
 Route::post('/reviews/create', [ReviewController::class, 'store']);
+Route::patch('/reviews/{review}/update', [ReviewController::class, 'update']);
 
 Route::get('/people/{person}', [PersonController::class, 'show']);
 

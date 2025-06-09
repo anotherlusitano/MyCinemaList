@@ -126,21 +126,47 @@
         @if($movie->status === 'released')
             <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
                 @if(Auth::check())
-                    <div x-data="{ showModal: {{ $errors->has('text') ? 'true' : 'false' }} }"
-                         @keydown.escape.window="showModal = false"
-                         class="flex flex-row items-center text-black hover:underline"
-                    >
-                        <!-- Write review button -->
-                        <span href="#"
-                              @click.prevent="showModal = true"
-                              class="flex flex-row items-center text-black hover:underline cursor-pointer">
+
+                    @php
+                        $movie_review = Auth::user()->review($movie);
+                    @endphp
+
+                    {{-- Show button and popup to edit review when the user have the review of the movie --}}
+                    @if($movie_review)
+                        <div x-data="{ showModal: {{ $errors->has('text') ? 'true' : 'false' }} }"
+                             @keydown.escape.window="showModal = false"
+                             class="flex flex-row items-center text-black hover:underline"
+                        >
+                            <!-- Edit review button -->
+                            <span href="#"
+                                  @click.prevent="showModal = true"
+                                  class="flex flex-row items-center text-black hover:underline cursor-pointer">
+                            <x-tabler-plus class="w-4 h-4"/>
+                            Edit review
+                        </span>
+
+                            <!-- Popup to edit review -->
+                            <x-edit-review-popup :movie-id="$movie->id" :review="$movie_review"/>
+                        </div>
+
+                        {{-- Show button and popup to create review when the user doesn't have the review of the movie --}}
+                    @else
+                        <div x-data="{ showModal: {{ $errors->has('text') ? 'true' : 'false' }} }"
+                             @keydown.escape.window="showModal = false"
+                             class="flex flex-row items-center text-black hover:underline"
+                        >
+                            <!-- Write review button -->
+                            <span href="#"
+                                  @click.prevent="showModal = true"
+                                  class="flex flex-row items-center text-black hover:underline cursor-pointer">
                             <x-tabler-plus class="w-4 h-4"/>
                             Write review
                         </span>
 
-                        <!-- Popup to create review -->
-                        <x-review-popup :movie-id="$movie->id"/>
-                    </div>
+                            <!-- Popup to create review -->
+                            <x-review-popup :movie-id="$movie->id"/>
+                        </div>
+                    @endif
                 @else
                     <div></div>
                 @endif
