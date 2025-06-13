@@ -16,6 +16,7 @@ Route::get('/movies/{movie}/reviews', [ReviewController::class, 'movieReviews'])
 
 Route::post('/reviews/create', [ReviewController::class, 'store']);
 Route::patch('/reviews/{review}/update', [ReviewController::class, 'update']);
+Route::delete('/reviews/{review}/destroy', [ReviewController::class, 'destroy']);
 
 Route::get('/people/{person}', [PersonController::class, 'show']);
 

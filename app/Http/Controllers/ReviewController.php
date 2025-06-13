@@ -42,6 +42,13 @@ class ReviewController extends Controller
         return redirect()->back();
     }
 
+    public function destroy(Review $review)
+    {
+        $review->delete();
+
+        return redirect()->back();
+    }
+
     public function movieReviews(Movie $movie)
     {
         $reviews = $movie->reviews()->paginate(3);

@@ -9,6 +9,7 @@
     @click.self="showModal = false"
 >
     <form
+        id="editForm"
         method="POST"
         action="/reviews/{{ $review->id }}/update"
         class="bg-white rounded-lg p-6 shadow-lg w-full max-w-md"
@@ -17,13 +18,14 @@
         @csrf
         @method('PATCH')
 
-        <input type="hidden" name="movie_id" value="{{ $movieId }}">
+        <input form="editForm" type="hidden" name="movie_id" value="{{ $movieId }}">
 
         <h2 class="text-lg font-semibold mb-4">What you recommend?</h2>
 
         <div class="flex flex-col gap-2 mb-4" x-data="{ selected: '{{ $review->recommendation }}' }">
             <label>
-                <input type="radio" name="recommendation" value="recommended" class="hidden" x-model="selected">
+                <input form="editForm" type="radio" name="recommendation" value="recommended" class="hidden"
+                       x-model="selected">
                 <div :class="selected === 'recommended' ? 'bg-indigo-400 text-white' : 'bg-indigo-200 text-indigo-800'"
                      class="cursor-pointer flex items-center gap-2 px-4 py-2 rounded">
                     <x-uiw-like-o class="w-6 h-6 text-blue-600"/>
@@ -32,7 +34,8 @@
             </label>
 
             <label>
-                <input type="radio" name="recommendation" value="mixed feelings" class="hidden" x-model="selected">
+                <input form="editForm" type="radio" name="recommendation" value="mixed feelings" class="hidden"
+                       x-model="selected">
                 <div :class="selected === 'mixed feelings' ? 'bg-gray-400 text-white' : 'bg-gray-200 text-gray-800'"
                      class="cursor-pointer flex items-center gap-2 px-4 py-2 rounded">
                     <x-gmdi-sentiment-neutral-r class="w-6 h-6 text-gray-600"/>
@@ -41,7 +44,8 @@
             </label>
 
             <label>
-                <input type="radio" name="recommendation" value="not recommended" class="hidden" x-model="selected">
+                <input form="editForm" type="radio" name="recommendation" value="not recommended" class="hidden"
+                       x-model="selected">
                 <div :class="selected === 'not recommended' ? 'bg-red-400 text-white' : 'bg-red-200 text-red-800'"
                      class="cursor-pointer flex items-center gap-2 px-4 py-2 rounded">
                     <x-uiw-dislike-o class="w-6 h-6 text-red-600"/>
@@ -57,7 +61,7 @@
         </div>
 
         <label class="block font-medium mb-1">Review</label>
-        <textarea name="text" required pattern=".*\S+.*" rows="4"
+        <textarea form="editForm" name="text" required pattern=".*\S+.*" rows="4"
                   class="w-full border border-gray-300 rounded p-2 mb-4">{{ $review->text }}</textarea>
 
         @error("text")
@@ -66,8 +70,23 @@
         </span>
         @enderror
 
-        <button type="submit" class="w-full bg-indigo-500 text-white py-2 rounded hover:bg-indigo-600">
-            Edit
-        </button>
+        <div class="flex flex-row justify-between">
+            <button form="editForm" type="submit"
+                    class="w-32 bg-indigo-500 text-white py-2 rounded hover:bg-indigo-600">
+                Edit Review
+            </button>
+            <button form="deleteForm" type="submit"
+                    class="w-32 bg-red-500 text-white py-2 rounded hover:bg-red-600">
+                Delete Review
+            </button>
+        </div>
+    </form>
+    <form
+        id="deleteForm"
+        method="POST"
+        action="/reviews/{{ $review->id }}/destroy"
+    >
+        @csrf
+        @method('delete')
     </form>
 </div>
