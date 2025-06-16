@@ -6,7 +6,7 @@
             <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
             {{-- Favorite Button --}}
-            @if(Auth::check())
+            @if(Auth::check() and Auth::user()->role !== 'admin')
 
                 @if(Auth::user()->hasFavoriteMovie($movie))
                     <div class="mt-4">

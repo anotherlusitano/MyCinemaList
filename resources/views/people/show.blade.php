@@ -27,7 +27,7 @@
             </div>
 
             {{-- Favorite Button --}}
-            @if(Auth::check())
+            @if(Auth::check() and Auth::user()->role !== 'admin')
 
                 @if(Auth::user()->hasFavoritePerson($person))
                     <div class="mt-4">
