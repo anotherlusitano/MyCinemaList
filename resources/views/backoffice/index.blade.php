@@ -1,6 +1,6 @@
 <x-app-layout>
     <h1 class="text-3xl font-bold mt-12 mb-12 text-gray-800 text-center">Welcome back, {{ Auth::user()->username }}</h1>
-    <div class="flex justify-center align-middle w-full h-full gap-10">
+    <div class="flex flex-wrap justify-center align-middle w-full h-full gap-10">
         <div class="bg-white w-72 h-80 rounded-2xl shadow p-6 flex flex-col justify-between hover:shadow-lg transition">
             <div>
                 <div class="text-indigo-600 text-4xl mb-4">
