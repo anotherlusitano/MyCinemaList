@@ -59,7 +59,7 @@
                 </p>
             </div>
 
-            @if(Auth::check() and $movie->status === 'released')
+            @if(Auth::check() and $movie->status === 'released' and Auth::user()->role !== 'admin')
                 @php
                     $movieProgress = UserMovieProgress::query()
                         ->where('user_id', auth()->id())
@@ -125,7 +125,7 @@
 
         @if($movie->status === 'released')
             <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
-                @if(Auth::check())
+                @if(Auth::check() and Auth::user()->role !== 'admin')
 
                     @php
                         $movie_review = Auth::user()->review($movie);
