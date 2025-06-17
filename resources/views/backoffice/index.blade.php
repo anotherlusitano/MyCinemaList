@@ -25,7 +25,7 @@
                 <p class="text-gray-600 text-sm">Add directors, actors, and other staff to your database.</p>
             </div>
             <div class="mt-6">
-                <a href=""
+                <a href="/backoffice/staff"
                    class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
                     Go to Staff Form
                 </a>

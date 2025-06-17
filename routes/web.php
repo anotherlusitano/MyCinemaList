@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/backoffice', [BackofficeController::class, 'index']);
+    Route::get('/backoffice/staff', [BackofficeController::class, 'staff'])->name('bo-search-staff');
 });
 
 require __DIR__ . '/auth.php';
