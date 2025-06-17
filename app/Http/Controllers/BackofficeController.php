@@ -32,4 +32,11 @@ class BackofficeController extends Controller
             $query->orWhere('last_name', 'like', "%$name%");
         })->orderBy($field, $direction);
     }
+
+    public function destroy_person(Person $person)
+    {
+        $person->delete();
+
+        return redirect()->back();
+    }
 }

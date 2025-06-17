@@ -44,13 +44,23 @@
                            class="text-blue-600 font-medium hover:underline">{{ $person_name }}</a>
                         <div class="text-gray-700 text-sm">{{ $birthday }}</div>
                     </div>
-                    <div class="ml-auto mr-2">
+                    <div class="ml-auto mr-2 pr-4 flex flex-row">
                         <button type="submit" class="text-blue-500 focus:outline-none">
                             <x-gmdi-edit class="w-6 h-6"/>
                         </button>
-                        <button type="submit" class="text-red-500 focus:outline-none">
-                            <x-gmdi-delete class="w-6 h-6"/>
-                        </button>
+                        <div x-data="{ showModal: false }"
+                             @keydown.escape.window="showModal = false"
+                        >
+                            <!-- Button to delete person -->
+                            <span href="#"
+                                  @click.prevent="showModal = true"
+                                  class="text-red-500 cursor-pointer">
+                                <x-gmdi-delete class="w-6 h-6"/>
+                            </span>
+
+                            <!-- Popup to delete person -->
+                            <x-delete-person-dialog :person="$person"/>
+                        </div>
                     </div>
                 </li>
             @endforeach
