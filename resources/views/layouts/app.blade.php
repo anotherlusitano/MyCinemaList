@@ -20,6 +20,8 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-gray-100 relative pb-36">
