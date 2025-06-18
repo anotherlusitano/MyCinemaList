@@ -45,9 +45,9 @@
                         <div class="text-gray-700 text-sm">{{ $birthday }}</div>
                     </div>
                     <div class="ml-auto mr-2 pr-4 flex flex-row">
-                        <button type="submit" class="text-blue-500 focus:outline-none">
+                        <a href="/backoffice/staff/{{ $person->id }}/edit" class="text-blue-500 mr-2 cursor-pointer">
                             <x-gmdi-edit class="w-6 h-6"/>
-                        </button>
+                        </a>
                         <div x-data="{ showModal: false }"
                              @keydown.escape.window="showModal = false"
                         >

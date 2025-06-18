@@ -39,4 +39,14 @@ class BackofficeController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit(Person $person)
+    {
+        $movies_person_participated = $person->staff;
+
+        return view('backoffice.staff.edit', [
+            'person' => $person,
+            'movies_person_participated' => $movies_person_participated
+        ]);
+    }
 }
