@@ -6,7 +6,7 @@
     <!-- Profile Picture -->
     <img
         @click="open = !open"
-        src="{{ $user->picture ?? asset('images/default-profile.png') }}"
+        src="{{ asset($user->picture) ?? asset('person.png') }}"
         alt="Profile"
         class="w-12 h-12 rounded-full object-cover border border-black cursor-pointer"
     >

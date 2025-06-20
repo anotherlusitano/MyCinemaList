@@ -2,7 +2,7 @@
 
 <a href="/movies/{{ $id }}">
     <div class="w-80 min-w-56 rounded-xl shadow-lg bg-black">
-        <img src="{{ $picture }}" alt="{{ $title }}" class="w-full h-60 object-cover"/>
+        <img src="{{ asset($picture) }}" alt="{{ $title }}" class="w-full h-60 object-cover"/>
 
         <!-- Text content at bottom -->
         <div class="bottom-0 p-3 text-white text-sm">

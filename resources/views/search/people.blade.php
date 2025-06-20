@@ -38,7 +38,7 @@
                 @endphp
 
                 <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                    <img src="{{ $person->picture }}" alt="{{ $person_name }}"
+                    <img src="{{ asset($person->picture) }}" alt="{{ $person_name }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
                         <a href="/people/{{ $person->id }}"

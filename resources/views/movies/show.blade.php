@@ -3,7 +3,7 @@
     <div class="flex bg-white p-6">
         <div class="flex flex-col items-center">
             {{-- Movie Poster --}}
-            <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
+            <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
             {{-- Favorite Button --}}
             @if(Auth::check() and Auth::user()->role !== 'admin')
@@ -90,7 +90,7 @@
                     @endphp
 
                     <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                        <img src="{{ $person_picture }}" alt="{{ $person_name }}"
+                        <img src="{{ asset($person_picture) }}" alt="{{ $person_name }}"
                              class="w-16 h-16 object-cover rounded mr-4">
                         <div>
                             <a href="/people/{{ $person->id }}"

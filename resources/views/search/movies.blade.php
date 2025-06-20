@@ -53,7 +53,7 @@
 
             @foreach ($movies as $movie)
                 <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                    <img src="{{ $movie->picture }}" alt="{{ $movie->title }}"
+                    <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
                         <a href="/movies/{{ $movie->id }}"

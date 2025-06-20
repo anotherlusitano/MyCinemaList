@@ -9,7 +9,7 @@
 
         {{-- Person Information --}}
         <div class="flex flex-col items-center max-w-lg w-1/4">
-            <img src="{{ $person->picture }}" alt="{{ $person_name }}" class="w-64 h-80 rounded">
+            <img src="{{ asset($person->picture) }}" alt="{{ $person_name }}" class="w-64 h-80 rounded">
 
             <div class="flex flex-col text-center min-w-10 mx-2 mt-2">
                 <h2 class="text-xl font-bold">{{ $person_name }}</h2>
@@ -58,7 +58,7 @@
                     $movie = $member->movie;
                 @endphp
                 <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                    <img src="{{ $movie->picture }}" alt="{{ $movie->title }}"
+                    <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
                         <a href="/movies/{{ $movie->id }}"

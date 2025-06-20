@@ -5,7 +5,7 @@
 
             @foreach ($movies->take(5) as $movie)
                 <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                    <img src="{{ $movie->picture }}" alt="{{ $movie->title }}"
+                    <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
                         <a href="/movies/{{ $movie->id }}"
@@ -44,7 +44,7 @@
                 @endphp
 
                 <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                    <img src="{{ $person->picture }}" alt="{{ $person_name }}"
+                    <img src="{{ asset($person->picture) }}" alt="{{ $person_name }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
                         <a href="/people/{{ $person->id }}"
@@ -78,7 +78,7 @@
                 @endphp
 
                 <li class="flex items-center bg-gray-100 even:bg-white p-2">
-                    <img src="{{ $user->picture }}" alt="{{ $user->username }}"
+                    <img src="{{ asset($user->picture) }}" alt="{{ $user->username }}"
                          class="w-16 h-16 object-cover rounded mr-4">
                     <div>
                         <a href="/users/{{ $user->id }}"

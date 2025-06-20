@@ -2,7 +2,7 @@
     <div class="flex flex-row min-h-4/5 w-full mt-6">
         <div class="flex flex-col items-center max-w-lg w-1/4 mr-10 mt-6">
             {{-- Movie Poster --}}
-            <img src="{{ $movie->picture }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
+            <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
             {{-- Content --}}
             <div class="flex-1 text-center min-w-10 mx-2">

@@ -15,7 +15,7 @@
     <div class="flex items-start justify-between">
         <div class="flex items-start gap-4">
             <a href="/users/{{ $review->user->id }}">
-                <img src="{{ $review->user->picture }}" alt="{{ $review->user->username }}"
+                <img src="{{ asset($review->user->picture) }}" alt="{{ $review->user->username }}"
                      class="w-16 h-16 rounded-lg object-cover text-xs"/>
             </a>
             <div>
