@@ -49,4 +49,39 @@ class BackofficeController extends Controller
             'movies_person_participated' => $movies_person_participated
         ]);
     }
+
+    public function update(Person $person)
+    {
+        request()->validate([
+            'first_name' => ['min:3', 'max:25', 'required'],
+            'last_name' => ['min:3', 'max:25', 'required'],
+            'birthday' => ['date', 'required'],
+            'description' => ['nullable', 'max:255'],
+            'picture' => ['image'],
+        ]);
+
+        $picture = $person->picture;
+
+        // person.png is the default picture
+        if (request('picture') && $person->picture !== 'person.png') {
+
+            // Will delete the previous picture from the storage
+            unlink(public_path($person->picture));
+        }
+
+        if (request()->hasFile('picture')) {
+            $path = request()->file('picture')->store('people', 'public');
+            $picture = '/storage/' . $path;
+        }
+
+        $person->update([
+            'first_name' => request('first_name'),
+            'last_name' => request('last_name'),
+            'birthday' => request('birthday'),
+            'description' => request('description'),
+            'picture' => $picture,
+        ]);
+
+        return redirect()->back();
+    }
 }
