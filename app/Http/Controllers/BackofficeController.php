@@ -50,6 +50,14 @@ class BackofficeController extends Controller
         ]);
     }
 
+    public function staff_roles(Person $person)
+    {
+        return view('backoffice.staff.roles', [
+            'person' => $person,
+            'staff' => $person->staff
+        ]);
+    }
+
     public function update(Person $person)
     {
         request()->validate([
