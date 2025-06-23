@@ -48,7 +48,7 @@ class BackofficeController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Person $person)
+    public function edit_person(Person $person)
     {
         $movies_person_participated = $person->staff;
 
@@ -66,7 +66,7 @@ class BackofficeController extends Controller
         ]);
     }
 
-    public function update(Person $person)
+    public function update_person(Person $person)
     {
         request()->validate([
             'first_name' => ['min:3', 'max:25', 'required'],

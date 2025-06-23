@@ -45,7 +45,7 @@
                         <div class="text-gray-700 text-sm">{{ $birthday }}</div>
                     </div>
                     <div class="ml-auto mr-2 pr-4 flex flex-row">
-                        <a href="/backoffice/staff/{{ $person->id }}/edit" class="text-blue-500 mr-2 cursor-pointer">
+                        <a href="/backoffice/people/{{ $person->id }}/edit" class="text-blue-500 mr-2 cursor-pointer">
                             <x-gmdi-edit class="w-6 h-6"/>
                         </a>
                         <div x-data="{ showModal: false }"
