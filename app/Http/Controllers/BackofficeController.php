@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Person;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
 class BackofficeController extends Controller
@@ -40,6 +41,13 @@ class BackofficeController extends Controller
         return redirect()->back();
     }
 
+    public function destroy_staff(Staff $staff)
+    {
+        $staff->delete();
+
+        return redirect()->back();
+    }
+
     public function edit(Person $person)
     {
         $movies_person_participated = $person->staff;
@@ -54,7 +62,7 @@ class BackofficeController extends Controller
     {
         return view('backoffice.staff.roles', [
             'person' => $person,
-            'staff' => $person->staff
+            'staff' => $person->staff()->paginate(8)
         ]);
     }
 

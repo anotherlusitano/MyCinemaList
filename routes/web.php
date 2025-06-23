@@ -47,6 +47,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/backoffice/staff/{person}/roles', [BackofficeController::class, 'staff_roles']);
 
     Route::delete('/people/{person}/destroy', [BackofficeController::class, 'destroy_person']);
+    Route::delete('/staff/{staff}/destroy', [BackofficeController::class, 'destroy_staff']);
     Route::get('/backoffice/staff/{person}/edit', [BackofficeController::class, 'edit']);
     Route::patch('/backoffice/staff/{person}/update', [BackofficeController::class, 'update'])->name('update-person');
 });
