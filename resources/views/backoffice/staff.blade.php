@@ -60,7 +60,7 @@
 
                             <!-- Popup to delete person -->
                             <x-delete-dialog :name="$person->first_name"
-                                             :route="'/staff/' . $person->id . '/destroy'"/>
+                                             :route="'/people/' . $person->id . '/destroy'"/>
                         </div>
                     </div>
                 </li>
