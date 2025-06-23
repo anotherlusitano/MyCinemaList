@@ -17,7 +17,7 @@
         @csrf
         @method('delete')
 
-        <div class="w-full flex flex-col items-center">
+        <div class="w-full flex flex-col items-center text-center">
             <x-gmdi-warning class="w-12 h-12 text-red-600"/>
             <h2 class="text-lg font-semibold mb-4">Are you sure you want to delete {{ $name }}?</h2>
             <button type="submit"
