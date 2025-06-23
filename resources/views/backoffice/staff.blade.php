@@ -59,7 +59,8 @@
                             </span>
 
                             <!-- Popup to delete person -->
-                            <x-delete-person-dialog :person="$person"/>
+                            <x-delete-dialog :name="$person->first_name"
+                                             :route="'/staff/' . $person->id . '/destroy'"/>
                         </div>
                     </div>
                 </li>
