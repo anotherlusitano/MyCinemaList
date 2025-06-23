@@ -29,9 +29,20 @@
                     </div>
 
                     <div class="ml-auto mr-2 pr-4 flex flex-row">
-                        <a href="/backoffice/staff/{{ $person->id }}/edit" class="text-blue-500 mr-2 cursor-pointer">
-                            <x-gmdi-edit class="w-6 h-6"/>
-                        </a>
+                        <div x-data="{ showModal: false }"
+                             @keydown.escape.window="showModal = false"
+                             class="mr-2"
+                        >
+                            <!-- Button to edit role -->
+                            <span href="#"
+                                  @click.prevent="showModal = true"
+                                  class="text-blue-500 cursor-pointer">
+                                <x-gmdi-edit class="w-6 h-6"/>
+                            </span>
+
+                            <!-- Popup to edit role -->
+                            <x-edit-role-popup :staff="$staf"/>
+                        </div>
                         <div x-data="{ showModal: false }"
                              @keydown.escape.window="showModal = false"
                         >

@@ -100,4 +100,17 @@ class BackofficeController extends Controller
 
         return redirect()->back();
     }
+
+    public function update_staff(Staff $staff)
+    {
+        request()->validate([
+            'role' => ['min:3', 'max:50', 'required'],
+        ]);
+
+        $staff->update([
+            'role' => request('role'),
+        ]);
+
+        return redirect()->back();
+    }
 }

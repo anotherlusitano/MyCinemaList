@@ -50,6 +50,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/staff/{staff}/destroy', [BackofficeController::class, 'destroy_staff']);
     Route::get('/backoffice/people/{person}/edit', [BackofficeController::class, 'edit_person']);
     Route::patch('/backoffice/people/{person}/update', [BackofficeController::class, 'update_person'])->name('update-person');
+    Route::patch('/backoffice/staff/{staff}/update', [BackofficeController::class, 'update_staff'])->name('update-staff');
 });
 
 require __DIR__ . '/auth.php';
