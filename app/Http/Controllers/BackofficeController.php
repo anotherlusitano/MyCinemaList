@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use App\Models\Person;
 use App\Models\Staff;
 use Illuminate\Http\Request;
@@ -63,6 +64,22 @@ class BackofficeController extends Controller
         return view('backoffice.staff.roles', [
             'person' => $person,
             'staff' => $person->staff()->paginate(8)
+        ]);
+    }
+
+    public function add_roles(Request $request, Person $person)
+    {
+        $title = $request->query('query') ?? '';
+        $movies = Movie::query()->where(function ($query) use ($title, $person) {
+            foreach ($person->staff as $staff) {
+                $query->where('title', 'like', "%$title%");
+                $query->whereNot('id', $staff->movie->id);
+            }
+        })->paginate(6);
+
+        return view('backoffice.staff.add_roles', [
+            'movies' => $movies,
+            'person' => $person
         ]);
     }
 

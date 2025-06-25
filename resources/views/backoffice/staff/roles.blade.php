@@ -3,7 +3,7 @@
         <div class="flex flex-col items-center max-w-lg w-1/4">
             <img src="{{ asset($person->picture) }}" alt="{{ $person->first_name }}" class="w-64 h-80 rounded">
 
-            <a href=""
+            <a href="/backoffice/staff/{{ $person->id }}/roles/add"
                class="px-8 py-2 mt-4 bg-green-600 text-white rounded-md shadow-sm hover:bg-green-700">
                 Add Movie Roles
             </a>
