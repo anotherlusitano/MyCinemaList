@@ -45,6 +45,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Backoffice routes to modify the staff
     Route::get('/backoffice/staff', [BackofficeController::class, 'staff'])->name('bo-search-staff');
+    Route::get('/backoffice/staff/add', [BackofficeController::class, 'add_people']);
+    Route::post('/backoffice/staff/create', [BackofficeController::class, 'create_person']);
     Route::get('/backoffice/staff/{person}/roles', [BackofficeController::class, 'staff_roles']);
     Route::get('/backoffice/staff/{person}/roles/add', [BackofficeController::class, 'add_roles'])->name('search_movies');
     Route::post('/backoffice/roles/create', [BackofficeController::class, 'create_role'])->name('create-role');

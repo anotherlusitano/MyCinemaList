@@ -24,6 +24,10 @@
                 <option value="birthday|desc" {{ request('sort') == 'birthday|desc' ? 'selected' : '' }}>Younger
                 </option>
             </select>
+            <a href="/backoffice/staff/add"
+               class="text-center self-center py-2 mt-4 w-44 bg-green-600 text-white rounded-md shadow-sm hover:bg-green-700">
+                Add Person
+            </a>
         </form>
         <div class="w-full max-w-4xl">
             <h2 class="text-2xl font-semibold mb-4">People</h2>

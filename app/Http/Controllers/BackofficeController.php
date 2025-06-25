@@ -14,6 +14,37 @@ class BackofficeController extends Controller
         return view('backoffice.index');
     }
 
+    public function add_people()
+    {
+        return view('backoffice.staff.add');
+    }
+
+    public function create_person()
+    {
+        request()->validate([
+            'first_name' => ['min:3', 'max:25', 'required'],
+            'last_name' => ['min:3', 'max:25', 'required'],
+            'birthday' => ['date', 'required'],
+            'description' => ['nullable', 'max:255'],
+            'picture' => ['nullable', 'image'],
+        ]);
+
+        if (request()->hasFile('picture')) {
+            $path = request()->file('picture')->store('people', 'public');
+            $picture = '/storage/' . $path;
+        }
+
+        Person::create([
+            'first_name' => request('first_name'),
+            'last_name' => request('last_name'),
+            'birthday' => request('birthday'),
+            'description' => request('description'),
+            'picture' => $picture,
+        ]);
+
+        return redirect()->back();
+    }
+
     public function staff(Request $request)
     {
         $query = $request->query('query') ?? '';
