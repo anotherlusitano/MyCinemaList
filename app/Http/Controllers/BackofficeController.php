@@ -147,4 +147,42 @@ class BackofficeController extends Controller
 
         return redirect()->back();
     }
+
+
+    // --------------------- MOVIES ------------------------
+    public function movies(Request $request)
+    {
+        $query = $request->query('query') ?? '';
+
+        $sort = $request->query('sort') ?? 'title|asc';
+        $status = $request->query('status') ?? '';
+        $genre = $request->query('genre') ?? '';
+        $rating = $request->query('rating') ?? '';
+
+        return view('backoffice.movies', [
+            'movies' => $this->filterMovies($query, $sort, $status, $rating, $genre)->paginate(8),
+        ]);
+    }
+
+    public function filterMovies(string $name, string $sort = "title|asc", string $status = '', string $rating = '', string $genre = '')
+    {
+        [$field, $direction] = explode('|', $sort);
+
+        return Movie::query()->where(function ($query) use ($name) {
+            $query->where('title', 'like', "%$name%");
+            $query->orWhere('synopsis', 'like', "%$name%");
+        })
+            ->when($status !== '', function ($query) use ($status) {
+                $query->where('status', $status);
+            })
+            ->when($rating !== '', function ($query) use ($rating) {
+                $query->where('rating', $rating);
+            })
+            ->when($genre !== '', function ($query) use ($genre) {
+                $query->whereHas('genres', function ($query) use ($genre) {
+                    $query->where('name', $genre);
+                });
+            })
+            ->orderBy($field, $direction);
+    }
 }

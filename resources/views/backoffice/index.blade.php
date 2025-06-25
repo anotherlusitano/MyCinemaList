@@ -10,7 +10,7 @@
                 <p class="text-gray-600 text-sm">Create and manage new movie entries for the platform.</p>
             </div>
             <div class="mt-6">
-                <a href=""
+                <a href="/backoffice/movies"
                    class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
                     Go to Movie Form
                 </a>
