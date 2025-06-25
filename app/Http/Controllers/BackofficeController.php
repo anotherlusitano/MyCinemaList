@@ -82,11 +82,8 @@ class BackofficeController extends Controller
 
     public function edit_person(Person $person)
     {
-        $movies_person_participated = $person->staff;
-
         return view('backoffice.staff.edit', [
             'person' => $person,
-            'movies_person_participated' => $movies_person_participated
         ]);
     }
 
