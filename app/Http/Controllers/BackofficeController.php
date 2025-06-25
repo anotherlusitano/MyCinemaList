@@ -32,6 +32,8 @@ class BackofficeController extends Controller
         if (request()->hasFile('picture')) {
             $path = request()->file('picture')->store('people', 'public');
             $picture = '/storage/' . $path;
+        } else {
+            $picture = 'person.png';
         }
 
         Person::create([
