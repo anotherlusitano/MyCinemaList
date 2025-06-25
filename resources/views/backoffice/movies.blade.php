@@ -63,6 +63,25 @@
                             <p><span class="font-semibold">Release:</span> {{ $movie->release_year}}</p>
                         </div>
                     </div>
+                    <div class="ml-auto mr-2 pr-4 flex flex-row">
+                        <a href="" class="text-blue-500 mr-2 cursor-pointer">
+                            <x-gmdi-edit class="w-6 h-6"/>
+                        </a>
+                        <div x-data="{ showModal: false }"
+                             @keydown.escape.window="showModal = false"
+                        >
+                            <!-- Button to delete person -->
+                            <span href="#"
+                                  @click.prevent="showModal = true"
+                                  class="text-red-500 cursor-pointer">
+                                <x-gmdi-delete class="w-6 h-6"/>
+                            </span>
+
+                            <!-- Popup to delete person -->
+                            <x-delete-dialog :name="$movie->title"
+                                             :route="'/movies/' . $movie->id . '/destroy'"/>
+                        </div>
+                    </div>
                 </li>
             @endforeach
 

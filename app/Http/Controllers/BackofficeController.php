@@ -216,4 +216,11 @@ class BackofficeController extends Controller
             })
             ->orderBy($field, $direction);
     }
+
+    public function destroy_movie(Movie $movie)
+    {
+        $movie->delete();
+
+        return redirect()->back();
+    }
 }
