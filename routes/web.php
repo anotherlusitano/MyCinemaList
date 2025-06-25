@@ -46,6 +46,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/backoffice/staff', [BackofficeController::class, 'staff'])->name('bo-search-staff');
     Route::get('/backoffice/staff/{person}/roles', [BackofficeController::class, 'staff_roles']);
     Route::get('/backoffice/staff/{person}/roles/add', [BackofficeController::class, 'add_roles'])->name('search_movies');
+    Route::post('/backoffice/roles/create', [BackofficeController::class, 'create_role'])->name('create-role');
 
     Route::delete('/people/{person}/destroy', [BackofficeController::class, 'destroy_person']);
     Route::delete('/staff/{staff}/destroy', [BackofficeController::class, 'destroy_staff']);

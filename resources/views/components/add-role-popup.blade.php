@@ -10,7 +10,7 @@
 >
     <form
         method="POST"
-        action=""
+        action="{{ route('create-role') }}"
         class="bg-white rounded-lg p-6 shadow-lg w-full max-w-md"
         @click.stop
     >
@@ -22,7 +22,7 @@
             <input type="hidden" name="movie_id" value="{{ $movie->id }}">
             <input type="hidden" name="person_id" value="{{ $person_id }}">
 
-            <input type="text" name="role"
+            <input type="text" name="role" maxlength="50" minlength="3"
                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
             @error('role')
             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>

@@ -83,6 +83,23 @@ class BackofficeController extends Controller
         ]);
     }
 
+    public function create_role()
+    {
+        request()->validate([
+            'movie_id' => ['required', 'numeric'],
+            'person_id' => ['required', 'numeric'],
+            'role' => ['required', 'min:3', 'max:50']
+        ]);
+
+        Staff::create([
+            'movie_id' => request('movie_id'),
+            'person_id' => request('person_id'),
+            'role' => request('role')
+        ]);
+
+        return redirect()->back();
+    }
+
     public function update_person(Person $person)
     {
         request()->validate([
