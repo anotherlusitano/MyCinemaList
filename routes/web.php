@@ -67,6 +67,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/backoffice/movies/{movie}/genres', [BackofficeController::class, 'genres']);
     Route::delete('/genres/{genre}/destroy', [BackofficeController::class, 'destroy_genre']);
+    Route::post('/genres/{movie}/genre/add', [BackofficeController::class, 'add_genre'])->name('add-genre');
 });
 
 require __DIR__ . '/auth.php';

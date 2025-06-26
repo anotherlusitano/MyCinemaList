@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\GenresOfMovie;
 use App\Models\Movie;
 use App\Models\Person;
 use App\Models\Staff;
@@ -274,10 +275,31 @@ class BackofficeController extends Controller
 
     public function genres(Movie $movie)
     {
+        $genres = Genre::query()->where(function ($query) use ($movie) {
+            foreach ($movie->genres as $genre) {
+                $query->whereNot('id', $genre->genre_id);
+            }
+        })->get();
+
         return view('backoffice.movies.genres', [
             'movie' => $movie,
-            'genres' => $movie->genres()->get()
+            'genres' => $movie->genres()->get(),
+            'remaining_genres' => $genres
         ]);
+    }
+
+    public function add_genre(Movie $movie)
+    {
+        request()->validate([
+            'genre' => ['required', 'numeric'],
+        ]);
+
+        GenresOfMovie::create([
+            'movie_id' => $movie->id,
+            'genre_id' => request('genre'),
+        ]);
+
+        return redirect()->back();
     }
 
     public function destroy_genre(Genre $genre)

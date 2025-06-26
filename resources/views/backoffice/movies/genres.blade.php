@@ -40,6 +40,28 @@
                     <p class="text-lg font-medium">This movie doesn't have any movies...</p>
                 </div>
             @endif
+
+            <h2 class="text-2xl font-semibold mb-4 mt-12">Add Genre</h2>
+
+            <form
+                method="POST"
+                action="{{ route('add-genre', $movie) }}"
+            >
+                @csrf
+
+                <select name="genre">
+                    @foreach($remaining_genres as $genre)
+                        <option value="{{ $genre->id }}">
+                            {{ $genre->name }}
+                        </option>
+                    @endforeach
+                </select>
+
+                <button type="submit"
+                        class="px-8 py-2 ml-6 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700">
+                    Add
+                </button>
+            </form>
         </div>
     </div>
 </x-app-layout>
