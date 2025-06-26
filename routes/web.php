@@ -64,6 +64,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/movies/{movie}/destroy', [BackofficeController::class, 'destroy_movie']);
     Route::get('/backoffice/movies/{movie}/edit', [BackofficeController::class, 'edit_movie']);
     Route::patch('/backoffice/movies/{movie}/update', [BackofficeController::class, 'update_movie'])->name('update-movie');
+
+    Route::get('/backoffice/movies/{movie}/genres', [BackofficeController::class, 'genres']);
+    Route::delete('/genres/{genre}/destroy', [BackofficeController::class, 'destroy_genre']);
 });
 
 require __DIR__ . '/auth.php';

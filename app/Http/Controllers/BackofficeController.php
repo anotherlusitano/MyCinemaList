@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Person;
 use App\Models\Staff;
@@ -265,6 +266,21 @@ class BackofficeController extends Controller
             'status' => request('status'),
             'picture' => $picture,
         ]);
+
+        return redirect()->back();
+    }
+
+    public function genres(Movie $movie)
+    {
+        return view('backoffice.movies.genres', [
+            'movie' => $movie,
+            'genres' => $movie->genres()->get()
+        ]);
+    }
+
+    public function destroy_genre(Genre $genre)
+    {
+        $genre->delete();
 
         return redirect()->back();
     }
