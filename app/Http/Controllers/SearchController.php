@@ -80,7 +80,9 @@ class SearchController extends Controller
             })
             ->when($genre !== '', function ($query) use ($genre) {
                 $query->whereHas('genres', function ($query) use ($genre) {
-                    $query->where('name', $genre);
+                    $query->whereHas('genre', function ($query) use ($genre) {
+                        $query->where('name', $genre);
+                    });
                 });
             })
             ->orderBy($field, $direction);

@@ -11,7 +11,7 @@
             <div class="flex flex-row flex-wrap">
                 @foreach ($genres as $genre)
                     <li class="flex items-center w-80 bg-white border border-black mb-2 mr-2 p-2">
-                        <p class="font-medium">{{ $genre->name }}</p>
+                        <p class="font-medium">{{ $genre->genre->name }}</p>
 
                         <div class="ml-auto pr-2 flex flex-row">
                             <div x-data="{ showModal: false }"
@@ -25,9 +25,9 @@
                                                     </span>
 
                                 <!-- Popup to delete genre -->
-                                <x-delete-dialog :name="'the '. $genre->name . ' genre'"
+                                <x-delete-dialog :name="'the '. $genre->genre->name . ' genre'"
                                                  :remove="true"
-                                                 :route="'/genres/' . $genre->id . '/destroy'"/>
+                                                 :route="'/genres/' . $genre->genre->id . '/destroy'"/>
                             </div>
                         </div>
                     </li>

@@ -54,7 +54,7 @@
                 <p>
                     <span class="font-semibold">Genres:</span>
                     @foreach($movie->genres as $genre)
-                        {{ $genre->name }},
+                        {{ $genre->genre->name }},
                     @endforeach
                 </p>
             </div>
