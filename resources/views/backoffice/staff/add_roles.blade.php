@@ -29,7 +29,7 @@
                            class="text-blue-600 font-medium hover:underline">{{ $movie->title }}</a>
 
                         <div class="text-sm text-gray-700">
-                            <p><span class="font-semibold">Release:</span> {{ $movie->release_year}}</p>
+                            <p><span class="font-semibold">Release:</span> {{ $movie->release_year ?? 'N/A' }}</p>
                         </div>
                     </div>
                     <div class="ml-auto pr-4 flex flex-row">

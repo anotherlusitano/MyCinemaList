@@ -32,7 +32,7 @@
 
         {{-- Content --}}
         <div class="flex-1 mr-1 md:ml-6">
-            <h2 class="text-2xl font-bold">{{ $movie->title }} ({{ $movie->release_year }})</h2>
+            <h2 class="text-2xl font-bold">{{ $movie->title }} ({{ $movie->release_year ?? 'N/A' }})</h2>
 
             {{-- Stars + Score --}}
             <x-score-stars
