@@ -4,6 +4,11 @@
             <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
             <h2 class="text-xl font-bold mt-2">{{ $movie->title }}</h2>
+
+            <a href="/backoffice/genres/edit"
+               class="px-8 py-2 mt-4 bg-green-600 text-white rounded-md shadow-sm hover:bg-green-700">
+                Create/Delete Genres
+            </a>
         </div>
         <div class="w-full max-w-4xl">
             <h2 class="text-2xl font-semibold mb-4">Genres</h2>
@@ -27,7 +32,7 @@
                                 <!-- Popup to remove genre of movie -->
                                 <x-delete-dialog :name="'the '. $genre->genre->name . ' genre'"
                                                  :remove="true"
-                                                 :route="'/genres/' . $genre->id . '/destroy'"/>
+                                                 :route="'/movie/genres/' . $genre->id . '/destroy'"/>
                             </div>
                         </div>
                     </li>

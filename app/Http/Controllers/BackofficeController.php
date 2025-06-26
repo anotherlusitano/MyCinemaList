@@ -302,7 +302,34 @@ class BackofficeController extends Controller
         return redirect()->back();
     }
 
-    public function destroy_genre(GenresOfMovie $genre)
+    public function destroy_genre_of_movie(GenresOfMovie $genre)
+    {
+        $genre->delete();
+
+        return redirect()->back();
+    }
+
+    public function edit_genres()
+    {
+        return view('backoffice.genres.edit', [
+            'genres' => Genre::paginate(8),
+        ]);
+    }
+
+    public function create_genre()
+    {
+        request()->validate([
+            'genre' => ['required', 'min:3', 'max:40']
+        ]);
+
+        Genre::create([
+            'name' => request('genre')
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function destroy_genre(Genre $genre)
     {
         $genre->delete();
 

@@ -66,8 +66,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/backoffice/movies/{movie}/update', [BackofficeController::class, 'update_movie'])->name('update-movie');
 
     Route::get('/backoffice/movies/{movie}/genres', [BackofficeController::class, 'genres']);
-    Route::delete('/genres/{genre}/destroy', [BackofficeController::class, 'destroy_genre']);
+    Route::delete('/movie/genres/{genre}/destroy', [BackofficeController::class, 'destroy_genre_of_movie']);
     Route::post('/genres/{movie}/genre/add', [BackofficeController::class, 'add_genre'])->name('add-genre');
+    Route::get('/backoffice/genres/edit', [BackofficeController::class, 'edit_genres']);
+    Route::post('/backoffice/genres/create', [BackofficeController::class, 'create_genre']);
+    Route::delete('/genres/{genre}/destroy', [BackofficeController::class, 'destroy_genre']);
 });
 
 require __DIR__ . '/auth.php';
