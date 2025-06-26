@@ -17,17 +17,17 @@
                             <div x-data="{ showModal: false }"
                                  @keydown.escape.window="showModal = false"
                             >
-                                <!-- Button to delete genre -->
+                                <!-- Button to remove genre of movie -->
                                 <span href="#"
                                       @click.prevent="showModal = true"
                                       class="text-red-500 cursor-pointer">
                                                         <x-gmdi-remove class="w-6 h-6"/>
                                                     </span>
 
-                                <!-- Popup to delete genre -->
+                                <!-- Popup to remove genre of movie -->
                                 <x-delete-dialog :name="'the '. $genre->genre->name . ' genre'"
                                                  :remove="true"
-                                                 :route="'/genres/' . $genre->genre->id . '/destroy'"/>
+                                                 :route="'/genres/' . $genre->id . '/destroy'"/>
                             </div>
                         </div>
                     </li>
@@ -37,7 +37,7 @@
             @if($genres->isEmpty())
                 <div class="max-w-fit text-center text-gray-500">
                     <span class="text-xl">:(</span>
-                    <p class="text-lg font-medium">This movie doesn't have any movies...</p>
+                    <p class="text-lg font-medium">This movie doesn't have any genres...</p>
                 </div>
             @endif
 

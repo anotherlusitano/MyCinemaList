@@ -302,7 +302,7 @@ class BackofficeController extends Controller
         return redirect()->back();
     }
 
-    public function destroy_genre(Genre $genre)
+    public function destroy_genre(GenresOfMovie $genre)
     {
         $genre->delete();
 
