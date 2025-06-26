@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="ml-auto mr-2 pr-4 flex flex-row">
-                        <a href="" class="text-blue-500 mr-2 cursor-pointer">
+                        <a href="/backoffice/movies/{{ $movie->id }}/edit" class="text-blue-500 mr-2 cursor-pointer">
                             <x-gmdi-edit class="w-6 h-6"/>
                         </a>
                         <div x-data="{ showModal: false }"

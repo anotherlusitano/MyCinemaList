@@ -222,4 +222,50 @@ class BackofficeController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit_movie(Movie $movie)
+    {
+        return view('backoffice.movies.edit', [
+            'movie' => $movie,
+        ]);
+    }
+
+    public function update_movie(Movie $movie)
+    {
+        request()->validate([
+            'title' => ['min:3', 'max:50'],
+            'synopsis' => ['max:1250', 'nullable'],
+            'release_year' => ['numeric', 'min:1900', 'max:2067', 'nullable'],
+            'duration' => ['numeric', 'min:20', 'max:360', 'nullable'],
+            'rating' => 'required|in:all ages,kids,teens,adults',
+            'status' => 'required|in:released,unreleased,cancelled',
+            'picture' => ['nullable', 'image'],
+        ]);
+
+        $picture = $movie->picture;
+
+        // movie.png is the default picture
+        if (request('picture') && $movie->picture !== 'movie.png') {
+
+            // Will delete the previous picture from the storage
+            unlink(public_path($movie->picture));
+        }
+
+        if (request()->hasFile('picture')) {
+            $path = request()->file('picture')->store('movies', 'public');
+            $picture = '/storage/' . $path;
+        }
+
+        $movie->update([
+            'title' => request('title'),
+            'synopsis' => request('synopsis'),
+            'release_year' => request('release_year'),
+            'duration' => request('duration'),
+            'rating' => request('rating'),
+            'status' => request('status'),
+            'picture' => $picture,
+        ]);
+
+        return redirect()->back();
+    }
 }

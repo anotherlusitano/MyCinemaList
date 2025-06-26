@@ -62,6 +62,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Backoffice routes to modify the movies
     Route::get('/backoffice/movies', [BackofficeController::class, 'movies'])->name('bo-search-movies');
     Route::delete('/movies/{movie}/destroy', [BackofficeController::class, 'destroy_movie']);
+    Route::get('/backoffice/movies/{movie}/edit', [BackofficeController::class, 'edit_movie']);
+    Route::patch('/backoffice/movies/{movie}/update', [BackofficeController::class, 'update_movie'])->name('update-movie');
 });
 
 require __DIR__ . '/auth.php';
