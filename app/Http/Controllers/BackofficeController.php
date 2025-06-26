@@ -335,4 +335,41 @@ class BackofficeController extends Controller
 
         return redirect()->back();
     }
+
+    public function add_movie()
+    {
+        return view('backoffice.movies.add');
+    }
+
+    public function create_movie()
+    {
+        request()->validate([
+            'title' => ['min:3', 'max:50', 'required'],
+            'synopsis' => ['max:1250', 'nullable'],
+            'release_year' => ['numeric', 'min:1900', 'max:2067', 'nullable'],
+            'duration' => ['numeric', 'min:20', 'max:360', 'nullable'],
+            'rating' => 'required|in:all ages,kids,teens,adults',
+            'status' => 'required|in:released,unreleased,cancelled',
+            'picture' => ['nullable', 'image'],
+        ]);
+
+        if (request()->hasFile('picture')) {
+            $path = request()->file('picture')->store('movies', 'public');
+            $picture = '/storage/' . $path;
+        } else {
+            $picture = 'movie.png';
+        }
+
+        Movie::create([
+            'title' => request('title'),
+            'synopsis' => request('synopsis'),
+            'release_year' => request('release_year'),
+            'duration' => request('duration'),
+            'rating' => request('rating'),
+            'status' => request('status'),
+            'picture' => $picture,
+        ]);
+
+        return redirect()->back();
+    }
 }

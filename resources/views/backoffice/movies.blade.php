@@ -47,6 +47,10 @@
                     </option>
                 @endforeach
             </select>
+            <a href="/backoffice/movies/add"
+               class="text-center self-center py-2 mt-4 w-44 bg-green-600 text-white rounded-md shadow-sm hover:bg-green-700">
+                Add Movie
+            </a>
         </form>
         <div class="w-full max-w-4xl">
             <h2 class="text-2xl font-semibold mb-4">Movies</h2>
