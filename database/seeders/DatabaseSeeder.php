@@ -5,12 +5,7 @@ namespace Database\Seeders;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Person;
-use App\Models\Review;
-use App\Models\Staff;
 use App\Models\User;
-use App\Models\UserFavoriteMovie;
-use App\Models\UserFavoritePerson;
-use App\Models\UserMovieProgress;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,22 +15,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        User::factory(50)->create();
+        User::factory(1)->admin()->create();
+        User::factory(1)->dummy()->create();
 
-        Movie::factory(20)->has(
-            Genre::factory(), 'genres',
-        )->create();
+        Person::factory(100)->create();
 
-        Review::factory(10)->create();
+        Genre::factory()
+            ->count(20)
+            ->sequence(
+                ['name' => 'Adventure'],
+                ['name' => 'Action'],
+                ['name' => 'Drama'],
+                ['name' => 'Comedy'],
+                ['name' => 'Fantasy'],
+                ['name' => 'Horror'],
+                ['name' => 'Thriller'],
+                ['name' => 'Mystery'],
+                ['name' => 'Romance'],
+                ['name' => 'Sci-Fi']
+            )
+            ->create();
 
-        Person::factory(40)->create();
-
-        Staff::factory(10)->create();
-
-        UserFavoritePerson::factory(10)->create();
-
-        UserFavoriteMovie::factory(10)->create();
-
-        UserMovieProgress::factory(40)->create();
+        Movie::factory(200)->create();
     }
 }
