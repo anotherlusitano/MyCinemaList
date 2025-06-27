@@ -51,12 +51,15 @@
                 <p><span class="font-semibold">Duration:</span> {{ $movie->duration }} minutos</p>
                 <p><span class="font-semibold">Rating:</span> {{ $movie->rating }}</p>
                 <p><span class="font-semibold">Status:</span> {{ $movie->status }}</p>
-                <p>
-                    <span class="font-semibold">Genres:</span>
+                <p><span class="font-semibold">Genres:</span></p>
+                <div class="flex flex-wrap gap-1">
                     @foreach($movie->genres as $genre)
-                        {{ $genre->genre->name }},
+                        <div
+                            class="inline-block py-1 px-4 w-auto bg-blue-600 text-white border border-black rounded">
+                            {{ $genre->genre->name }}
+                        </div>
                     @endforeach
-                </p>
+                </div>
             </div>
 
             @if(Auth::check() and $movie->status === 'released' and Auth::user()->role !== 'admin')
