@@ -24,4 +24,11 @@ class UserMovieProgressController extends Controller
 
         return back();
     }
+
+    public function destroy(UserMovieProgress $userMovieProgress)
+    {
+        $userMovieProgress->delete();
+
+        return redirect()->back();
+    }
 }
