@@ -1,33 +1,14 @@
-@php use App\Models\UserMovieProgress; @endphp
 <x-app-layout>
     <div class="flex bg-white p-6">
         <div class="flex flex-col items-center">
             {{-- Movie Poster --}}
             <img src="{{ asset($movie->picture) }}" alt="{{ $movie->title }}" class="w-64 h-80 rounded">
 
-            {{-- Favorite Button --}}
             @if(Auth::check() and Auth::user()->role !== 'admin')
-
-                @if(Auth::user()->hasFavoriteMovie($movie))
-                    <div class="mt-4">
-                        <input form="add-favorite-form" type="hidden" name="movie_id" value="{{ $movie->id }}">
-                        <button form="add-favorite-form"
-                                class="flex items-center text-blue-600 font-semibold hover:underline">
-                            <x-gmdi-favorite-border-s class="w-6 h-6"/>
-                            Add favorite
-                        </button>
-                    </div>
-                @else
-                    <div class="mt-4">
-                        <input form="remove-favorite-form" type="hidden" name="movie_id" value="{{ $movie->id }}">
-                        <button form="remove-favorite-form"
-                                class="flex items-center text-blue-600 font-semibold hover:underline">
-                            <x-gmdi-favorite-s class="w-6 h-6"/>
-                            Remove favorite
-                        </button>
-                    </div>
-                @endif
+                {{-- Favorite Button --}}
+                <x-favorite-button :movie="$movie"></x-favorite-button>
             @endif
+
         </div>
 
         {{-- Content --}}
@@ -62,20 +43,8 @@
                 </div>
             </div>
 
-            @if(Auth::check() and $movie->status === 'released' and Auth::user()->role !== 'admin')
-                @php
-                    $movieProgress = UserMovieProgress::query()
-                        ->where('user_id', auth()->id())
-                        ->where('movie_id', $movie->id)
-                        ->first();
-                @endphp
-
-                @if (!$movieProgress)
-                    <x-add-to-list-button :movie-id="$movie->id"/>
-                @else
-                    @livewire('user-movie-progress-dropdown', ['userMovieProgressId' => $movieProgress->id])
-                @endif
-            @endif
+            {{-- User Movie Progress action buttons --}}
+            <x-movie-progress-buttons :movie="$movie"></x-movie-progress-buttons>
         </div>
 
         {{-- Staff --}}
@@ -202,14 +171,4 @@
             </div>
         @endif
     </div>
-
-    <form method="POST" action="/movies/{{ $movie->id }}/favorite" id="add-favorite-form" class="hidden">
-        @csrf
-    </form>
-
-    <form method="POST" action="/movies/{{ $movie->id }}/remove-favorite" id="remove-favorite-form" class="hidden">
-        @csrf
-        @method('DELETE')
-
-    </form>
 </x-app-layout>
