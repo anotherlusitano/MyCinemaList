@@ -6,6 +6,8 @@
     $date = Carbon::parse($review->created_at)->isoFormat('MMM D, YYYY');
     $isLongText = strlen($review->text) > 300;
     $shortText = Str::limit($review->text, 300, '...');
+
+    $user = Auth::user();
 @endphp
 
 <div
@@ -26,7 +28,26 @@
                 </div>
             </div>
         </div>
-        <span class="text-gray-500 text-sm">{{ $date }}</span>
+        <div class="flex flex-col items-end gap-1">
+            <span class="text-gray-500 text-sm">{{ $date }}</span>
+
+            @if($user?->role === 'admin')
+                <div x-data="{ showModal: false }"
+                     @keydown.escape.window="showModal = false"
+                >
+                    <span href="#"
+                          @click.prevent="showModal = true"
+                          class="text-red-500 cursor-pointer">
+                                <x-gmdi-delete class="w-6 h-6"/>
+                            </span>
+
+                    <x-delete-dialog :name="'review of ' . $review->user->username"
+                                     :route="'/reviews/' . $review->id . '/destroy'"/>
+                </div>
+            @else
+                <div></div>
+            @endif
+        </div>
     </div>
 
     <div class="mt-4 text-gray-800 text-base leading-relaxed">

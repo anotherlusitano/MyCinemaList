@@ -6,6 +6,7 @@ use App\Models\Genre;
 use App\Models\GenresOfMovie;
 use App\Models\Movie;
 use App\Models\Person;
+use App\Models\Review;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 
@@ -369,6 +370,13 @@ class BackofficeController extends Controller
             'status' => request('status'),
             'picture' => $picture,
         ]);
+
+        return redirect()->back();
+    }
+
+    public function destroy_review(Review $review)
+    {
+        $review->delete();
 
         return redirect()->back();
     }
