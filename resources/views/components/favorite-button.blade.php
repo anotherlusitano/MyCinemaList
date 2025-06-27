@@ -1,7 +1,7 @@
 @props(['movie'])
 
 @if(Auth::user()->hasFavoriteMovie($movie))
-    <div class="mt-4">
+    <div class="mt-4 mb-2">
         <input form="add-favorite-form" type="hidden" name="movie_id" value="{{ $movie->id }}">
         <button form="add-favorite-form"
                 class="flex items-center text-blue-600 font-semibold hover:underline">
@@ -10,7 +10,7 @@
         </button>
     </div>
 @else
-    <div class="mt-4">
+    <div class="mt-4 mb-2">
         <input form="remove-favorite-form" type="hidden" name="movie_id" value="{{ $movie->id }}">
         <button form="remove-favorite-form"
                 class="flex items-center text-blue-600 font-semibold hover:underline">

@@ -7,6 +7,9 @@
             @if(Auth::check() and Auth::user()->role !== 'admin')
                 {{-- Favorite Button --}}
                 <x-favorite-button :movie="$movie"></x-favorite-button>
+
+                {{-- User Movie Progress action buttons --}}
+                <x-movie-progress-buttons :movie="$movie"></x-movie-progress-buttons>
             @endif
 
         </div>
@@ -42,9 +45,6 @@
                     @endforeach
                 </div>
             </div>
-
-            {{-- User Movie Progress action buttons --}}
-            <x-movie-progress-buttons :movie="$movie"></x-movie-progress-buttons>
         </div>
 
         {{-- Staff --}}
