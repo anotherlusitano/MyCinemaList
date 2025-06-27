@@ -9,6 +9,7 @@ use App\Models\Person;
 use App\Models\Review;
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BackofficeController extends Controller
 {
@@ -146,7 +147,7 @@ class BackofficeController extends Controller
         $picture = $person->picture;
 
         // person.png is the default picture
-        if (request('picture') && $person->picture !== 'person.png') {
+        if (request('picture') && $person->picture !== 'person.png' && Str::doesntContain($person->picture, 'http')) {
 
             // Will delete the previous picture from the storage
             unlink(public_path($person->picture));
@@ -250,7 +251,7 @@ class BackofficeController extends Controller
         $picture = $movie->picture;
 
         // movie.png is the default picture
-        if (request('picture') && $movie->picture !== 'movie.png') {
+        if (request('picture') && $movie->picture !== 'movie.png' && Str::doesntContain($movie->picture, 'http')) {
 
             // Will delete the previous picture from the storage
             unlink(public_path($movie->picture));
