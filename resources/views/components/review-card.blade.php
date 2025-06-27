@@ -1,6 +1,7 @@
 @props(['review', 'class' => ''])
 
 @php
+    use App\Models\UserMovieProgress;
     use Carbon\Carbon;
 
     $date = Carbon::parse($review->created_at)->isoFormat('MMM D, YYYY');
@@ -8,6 +9,10 @@
     $shortText = Str::limit($review->text, 300, '...');
 
     $user = Auth::user();
+
+    $score = UserMovieProgress::where('user_id', $review->user_id)
+        ->where('movie_id', $review->movie_id)
+        ->value('score');
 @endphp
 
 <div
@@ -59,15 +64,21 @@
         </template>
     </div>
 
-    @if ($isLongText)
-        <div class="mt-3 text-sm text-gray-500 cursor-pointer select-none">
-            <button
-                @click="expanded = !expanded"
-                class="hover:underline"
-                x-text="expanded ? '▲ Show Less' : '▼ Read More'"
-            ></button>
-        </div>
-    @else
-        <div class="mt-3 opacity-0 select-none">▼ Read More</div>
-    @endif
+    <div class="flex flex-row justify-between items-end">
+        @if ($isLongText)
+            <div class="mt-3 text-sm text-gray-500 cursor-pointer select-none">
+                <button
+                    @click="expanded = !expanded"
+                    class="hover:underline"
+                    x-text="expanded ? '▲ Show Less' : '▼ Read More'"
+                ></button>
+            </div>
+        @else
+            <div class="mt-3 opacity-0 select-none">▼ Read More</div>
+        @endif
+
+        @if($score)
+            <span class="text-gray-500 text-sm">Score given: {{ $score }}</span>
+        @endif
+    </div>
 </div>
