@@ -24,7 +24,7 @@
             />
 
             {{-- Synopsis --}}
-            <p class="max-w-xl">
+            <p class="max-w-3xl">
                 <span class="font-semibold">Sinopse</span>
                 <br>
                 {{ $movie->synopsis }}
