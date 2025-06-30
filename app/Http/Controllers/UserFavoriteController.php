@@ -72,4 +72,12 @@ class UserFavoriteController extends Controller
             'favorites' => $user->favoritePeople()->paginate(8),
         ]);
     }
+
+    public function favoriteMovies(User $user)
+    {
+        return view('profile.favorite.movies', [
+            'user' => $user,
+            'favorites' => $user->favoriteMovies()->paginate(8),
+        ]);
+    }
 }
