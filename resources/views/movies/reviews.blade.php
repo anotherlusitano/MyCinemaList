@@ -11,7 +11,7 @@
                 </a>
 
                 {{-- Synopsis --}}
-                <p>
+                <p class="line-clamp-6 mr-2">
                     {{ $movie->synopsis }}
                 </p>
 
