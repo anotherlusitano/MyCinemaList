@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserFavoriteMovie;
 use App\Models\UserFavoritePerson;
 use Illuminate\Support\Facades\Auth;
@@ -62,5 +63,13 @@ class UserFavoriteController extends Controller
             ->delete();
 
         return redirect()->back();
+    }
+
+    public function favoritePeople(User $user)
+    {
+        return view('profile.favorite.people', [
+            'user' => $user,
+            'favorites' => $user->favoritePeople()->paginate(8),
+        ]);
     }
 }

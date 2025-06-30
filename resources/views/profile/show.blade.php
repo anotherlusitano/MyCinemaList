@@ -57,8 +57,8 @@
 
             @if(count($favoritePeople) > 5)
                 <div class="mt-4">
-                    <a href="/search?type=movies&query={{ request()->get('query') }}"
-                       class="text-blue-600 hover:underline">More Movies</a>
+                    <a href="/users/{{ $user->id }}/favorite/people"
+                       class="text-blue-600 hover:underline">More People</a>
                 </div>
             @endif
 
