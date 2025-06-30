@@ -95,7 +95,7 @@
             <hr class="border-black">
         </div>
 
-        @if($movie->status === 'released')
+        @if($movie->status !== 'unreleased')
             <div class="bg-white border border-gray-200 shadow p-4 pt-2 rounded-md flex justify-between w-1/2">
                 @if(Auth::check() and Auth::user()->role !== 'admin')
 
