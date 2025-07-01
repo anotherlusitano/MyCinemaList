@@ -16,7 +16,7 @@
         <input
             type="text"
             name="query"
-            placeholder="Pesquise..."
+            placeholder="Search..."
             class="bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none w-48"
         />
         <button type="submit" class="text-white focus:outline-none">

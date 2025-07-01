@@ -4,7 +4,7 @@
         <!-- Left Side -->
         <div class="space-y-1">
             <div>
-                <a href="#" class="hover:underline font-bold">Contactos</a>
+                <a href="#" class="hover:underline font-bold">Contacts</a>
             </div>
             <div>
                 <a href="#" class="hover:underline font-bold">FAQ’s</a>
@@ -14,16 +14,16 @@
         <!-- Right Side -->
         <div class="space-y-1">
             <div>
-                <a href="#" class="hover:underline font-bold">Política de Privacidade</a>
+                <a href="#" class="hover:underline font-bold">Privacy Policy</a>
             </div>
             <div>
-                <a href="#" class="hover:underline font-bold">Termos e Condições</a>
+                <a href="#" class="hover:underline font-bold">Terms and Conditions</a>
             </div>
         </div>
     </div>
 
     <!-- Bottom -->
     <div class="mt-4 text-center text-xs font-semibold text-white font-poetsen">
-        © 2025 MyCinemaList. Todos os direitos reservados
+        © 2025 MyCinemaList. All rights reserved
     </div>
 </footer>
