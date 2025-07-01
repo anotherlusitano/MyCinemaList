@@ -51,7 +51,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit', $request->user()->id)->with('status', 'profile-updated');
     }
 
     /**
@@ -93,5 +93,12 @@ class ProfileController extends Controller
                 'progressList' => $user->movieProgessList()->where('watch_status', 'completed')->get(),
             ]),
         };
+    }
+
+    public function settings(User $user)
+    {
+        return view('profile.edit', [
+            'user' => request()->user(),
+        ]);
     }
 }
