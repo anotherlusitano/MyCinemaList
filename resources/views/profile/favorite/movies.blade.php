@@ -33,7 +33,7 @@
             @if($favorites->isEmpty())
                 <div class="text-center text-gray-500 mt-6">
                     <span class="text-xl">( ._.)</span>
-                    <p class="text-lg font-medium">This user has no favorite people</p>
+                    <p class="text-lg font-medium">This user has no favorite movies</p>
                 </div>
             @endif
 
