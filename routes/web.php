@@ -37,6 +37,8 @@ Route::get('/users/{user}/status', [ProfileController::class, 'movieStatus']);
 Route::get('/users/{user}/favorite/people', [UserFavoriteController::class, 'favoritePeople']);
 Route::get('/users/{user}/favorite/movies', [UserFavoriteController::class, 'favoriteMovies']);
 
+Route::view('/terms-conditions', 'information.terms-conditions');
+
 Route::middleware('auth')->group(function () {
     Route::get('/users/{user}/settings', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

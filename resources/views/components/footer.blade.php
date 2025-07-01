@@ -17,7 +17,7 @@
                 <a href="#" class="hover:underline font-bold">Privacy Policy</a>
             </div>
             <div>
-                <a href="#" class="hover:underline font-bold">Terms and Conditions</a>
+                <a href="/terms-conditions" class="hover:underline font-bold">Terms and Conditions</a>
             </div>
         </div>
     </div>
