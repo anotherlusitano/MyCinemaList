@@ -14,7 +14,7 @@
         <!-- Right Side -->
         <div class="space-y-1">
             <div>
-                <a href="#" class="hover:underline font-bold">Privacy Policy</a>
+                <a href="/privacy-policy" class="hover:underline font-bold">Privacy Policy</a>
             </div>
             <div>
                 <a href="/terms-conditions" class="hover:underline font-bold">Terms and Conditions</a>

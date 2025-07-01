@@ -38,6 +38,7 @@ Route::get('/users/{user}/favorite/people', [UserFavoriteController::class, 'fav
 Route::get('/users/{user}/favorite/movies', [UserFavoriteController::class, 'favoriteMovies']);
 
 Route::view('/terms-conditions', 'information.terms-conditions');
+Route::view('/privacy-policy', 'information.privacy-policy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/users/{user}/settings', [ProfileController::class, 'edit'])->name('profile.edit');
