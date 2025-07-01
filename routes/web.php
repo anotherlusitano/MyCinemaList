@@ -39,6 +39,7 @@ Route::get('/users/{user}/favorite/movies', [UserFavoriteController::class, 'fav
 
 Route::view('/terms-conditions', 'information.terms-conditions');
 Route::view('/privacy-policy', 'information.privacy-policy');
+Route::view('/contacts', 'information.contacts');
 Route::view('/faqs', 'information.faqs');
 
 Route::middleware('auth')->group(function () {

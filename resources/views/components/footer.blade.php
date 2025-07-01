@@ -4,7 +4,7 @@
         <!-- Left Side -->
         <div class="space-y-1">
             <div>
-                <a href="#" class="hover:underline font-bold">Contacts</a>
+                <a href="/contacts" class="hover:underline font-bold">Contacts</a>
             </div>
             <div>
                 <a href="/faqs" class="hover:underline font-bold">FAQ’s</a>
