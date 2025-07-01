@@ -74,4 +74,24 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function movieStatus(User $user)
+    {
+        $status = request()->query('status') ?? '';
+
+        return match ($status) {
+            'dropped' => view('profile.movie-status', [
+                'user' => $user,
+                'progressList' => $user->movieProgessList()->where('watch_status', 'dropped')->get(),
+            ]),
+            'plan-to-watch' => view('profile.movie-status', [
+                'user' => $user,
+                'progressList' => $user->movieProgessList()->where('watch_status', 'plan-to-watch')->get(),
+            ]),
+            default => view('profile.movie-status', [
+                'user' => $user,
+                'progressList' => $user->movieProgessList()->where('watch_status', 'completed')->get(),
+            ]),
+        };
+    }
 }

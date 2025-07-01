@@ -14,7 +14,7 @@
 
             <div class="mt-4 mb-6 flex flex-row text-center">
                 <x-gmdi-expand-more-o class="w-6 h-6"/>
-                <a href="#">All movie status</a>
+                <a href="/users/{{ $user->id }}/status">All movie status</a>
             </div>
 
             <h2 class="text-2xl font-semibold">Favorite Movies</h2>

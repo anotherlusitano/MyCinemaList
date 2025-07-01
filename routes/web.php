@@ -33,6 +33,7 @@ Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/users/{user}', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/users/{user}/reviews', [ReviewController::class, 'userReviews']);
+Route::get('/users/{user}/status', [ProfileController::class, 'movieStatus']);
 Route::get('/users/{user}/favorite/people', [UserFavoriteController::class, 'favoritePeople']);
 Route::get('/users/{user}/favorite/movies', [UserFavoriteController::class, 'favoriteMovies']);
 
