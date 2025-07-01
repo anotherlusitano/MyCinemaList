@@ -4,17 +4,18 @@
               class="flex flex-col px-10 max-w-xs w-1/4"
         >
             <input type="hidden" name="type" value="people">
-            <div class="flex bg-gray-800 mb-6">
+            <div
+                class="flex items-center bg-white border border-gray-300 rounded-2xl shadow-sm mb-6 w-full max-w-sm">
                 <input
                     type="text"
                     name="query"
                     value="{{ request('query') }}"
-                    placeholder="Pesquise..."
-                    class="bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none w-48"
+                    placeholder="Search..."
+                    class="bg-white text-sm text-gray-800 placeholder-gray-400 w-full border-none rounded-2xl"
                 />
                 <button type="submit"
-                        class="flex justify-center items-center text-white w-full focus:outline-none">
-                    <x-tabler-search/>
+                        class="ml-2 p-2 text-gray-600 hover:text-blue-600 focus:outline-none">
+                    <x-tabler-search class="w-5 h-5"/>
                 </button>
             </div>
             <select name="sort" class="mb-4">
