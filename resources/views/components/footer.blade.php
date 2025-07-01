@@ -7,7 +7,7 @@
                 <a href="#" class="hover:underline font-bold">Contacts</a>
             </div>
             <div>
-                <a href="#" class="hover:underline font-bold">FAQ’s</a>
+                <a href="/faqs" class="hover:underline font-bold">FAQ’s</a>
             </div>
         </div>
 
