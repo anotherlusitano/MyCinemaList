@@ -23,6 +23,10 @@
                 <x-tabler-brand-office class="w-5 h-5"/>
                 <span>Backoffice</span>
             </a>
+            <a href="/profile/settings" class="flex items-center text-lg space-x-2 hover:underline">
+                <x-uiw-setting class="w-5 h-5"/>
+                <span>Settings</span>
+            </a>
         @else
             <a href="/users/{{ $user->id }}" class="flex items-center text-lg space-x-2 hover:underline">
                 <x-bi-person-fill class="w-5 h-5"/>
