@@ -4,6 +4,10 @@
     Uma aplicação web em Laravel que permite organizar, avaliar e acompanhar listas personalizadas dos teus filmes favoritos de forma simples e intuitiva.
 </p>
 
+<p>
+    🇬🇧 <a href="https://github.com/anotherlusitano/MyCinemaList/blob/main/README_EN.md">English Version</a>
+</p>
+
 ## ℹ️ About
 
 O **MyCinemaList** é uma plataforma pensada para os verdadeiros amantes de cinema, que querem uma experiência completa e personalizada na organização e partilha das suas opiniões sobre filmes. Aqui, o utilizador não só gere listas de filmes com notas e estados de visualização, como também cria reviews com recomendações detalhadas, podendo expressar sentimentos positivos, negativos ou mistos.
