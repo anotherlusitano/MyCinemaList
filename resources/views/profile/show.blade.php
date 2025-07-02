@@ -2,7 +2,7 @@
     <div class="flex bg-white p-6">
         <div class="flex flex-col items-center">
             {{-- Movie Poster --}}
-            <img src="{{ $user->picture }}" alt="{{ $user->username }}" class="w-64 h-80 rounded">
+            <img src="{{ asset($user->picture) }}" alt="{{ $user->username }}" class="w-64 h-80 rounded">
 
             <h3 class="text-xl font-bold">{{ $user->username }}</h3>
         </div>

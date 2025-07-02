@@ -14,7 +14,7 @@
         @csrf
         @method('patch')
 
-        <img src="{{old('picture', $user->picture)}}" alt="Profile Picture" class="max-w-44 max-h-52">
+        <img src="{{old('picture', asset($user->picture))}}" alt="Profile Picture" class="max-w-44 max-h-52">
 
         <div>
             <x-input-label for="picture" :value="__('Picture')"/>
