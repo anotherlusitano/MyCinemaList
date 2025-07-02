@@ -45,6 +45,7 @@ Route::view('/faqs', 'information.faqs');
 Route::middleware('auth')->group(function () {
     Route::get('/profile/settings', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile/{user}/picture', [ProfileController::class, 'update_picture'])->name('profile.update_picture');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::delete('/user-movie-progress/{userMovieProgress}/destroy', [UserMovieProgressController::class, 'destroy']);
