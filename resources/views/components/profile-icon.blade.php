@@ -32,7 +32,7 @@
                 <x-gmdi-rate-review-o class="w-5 h-5"/>
                 <span>Reviews</span>
             </a>
-            <a href="/users/{{ $user->id }}/settings" class="flex items-center text-lg space-x-2 hover:underline">
+            <a href="/profile/settings" class="flex items-center text-lg space-x-2 hover:underline">
                 <x-uiw-setting class="w-5 h-5"/>
                 <span>Settings</span>
             </a>

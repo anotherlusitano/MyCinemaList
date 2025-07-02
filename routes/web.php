@@ -43,7 +43,7 @@ Route::view('/contacts', 'information.contacts');
 Route::view('/faqs', 'information.faqs');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/users/{user}/settings', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/settings', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
