@@ -60,7 +60,7 @@
         <section class="mb-10 mt-4">
             <h2 class="text-2xl font-semibold mb-2">5. Privacy</h2>
             <p>MyCinemaList respects user privacy. Profile customization and personal information management (such as
-                username and password) are handled securely. Please refer to our <a href="#"
+                username and password) are handled securely. Please refer to our <a href="/privacy-policy"
                                                                                     class="text-blue-600 hover:underline">Privacy
                     Policy</a> for full details on how data is collected and used.</p>
         </section>
