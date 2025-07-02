@@ -8,7 +8,7 @@
     🇬🇧 <a href="https://github.com/anotherlusitano/MyCinemaList/blob/main/README_EN.md">English Version</a>
 </p>
 
-## ℹ️ About
+## ℹ️ Sobre
 
 O **MyCinemaList** é uma plataforma pensada para os verdadeiros amantes de cinema, que querem uma experiência completa e personalizada na organização e partilha das suas opiniões sobre filmes. Aqui, o utilizador não só gere listas de filmes com notas e estados de visualização, como também cria reviews com recomendações detalhadas, podendo expressar sentimentos positivos, negativos ou mistos.
 
@@ -18,7 +18,7 @@ No MyCinemaList, a avaliação de filmes é transparente e social: qualquer util
 
 ---
 
-## ✨ Features
+## ✨ Funcionalidades
 
 - **Reviews detalhadas:** Os utilizadores podem criar reviews onde expressam se recomendam, não recomendam ou têm sentimentos mistos sobre um filme.  
 - **Listas personalizadas:** Cria listas onde podes dar uma nota de 1 a 10 a cada filme, assinalar se já viste, abandonaste ou pretendes ver.  
@@ -31,7 +31,7 @@ No MyCinemaList, a avaliação de filmes é transparente e social: qualquer util
 
 ---
 
-## 🚀 Setup
+## 🚀 Instalação
 
 1. **Clonar o repositório**
 
