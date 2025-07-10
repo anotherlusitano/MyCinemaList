@@ -63,6 +63,11 @@ php artisan serve
 
 ---
 
+## 📑 Esquema da Base de Dados e dos Modelos
+<img src="./graph.png" />
+
+---
+
 ## Informações adicionais
 
 Ao dar `seed` à base de dados, vai gerar duas contas predefinidas:
