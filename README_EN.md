@@ -59,6 +59,11 @@ php artisan serve
 
 ---
 
+## 📑 Database Scheme and Models
+<img src="./graph.png" />
+
+---
+
 ## Additional information
 
 When you `seed` the database, it will generate two default accounts:
