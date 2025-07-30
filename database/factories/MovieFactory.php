@@ -70,27 +70,39 @@ class MovieFactory extends Factory
                 ]);
 
                 if ($movie->status !== 'unreleased') {
+                    $recommendation = fake()->randomElement([
+                            'recommended',
+                            'mixed feelings',
+                            'not recommended'
+                    ]);
+
                     // Attach 3–25 random reviews for this movie
                     Review::create([
                         'movie_id' => $movie->id,
                         'user_id' => $userId,
                         'text' => fake()->text(1000),
-                        'recommendation' => fake()->randomElement([
-                            'recommended',
-                            'mixed feelings',
-                            'not recommended'
-                        ]),
+                        'recommendation' => $recommendation,
                     ]);
 
                     $status = $this->faker->randomElement(['completed', 'dropped', 'plan-to-watch']);
                     $completed = $status === 'completed' ? $this->faker->date() : null;
+
+                    $ranges = [
+                        'recommended' => [7, 10],
+                        'mixed feelings' => [4, 6],
+                        'not recommended' => [1, 3],
+                    ];
+
+                    $score = $status !== 'plan-to-watch'
+                        ? $this->faker->numberBetween(...$ranges[$recommendation])
+                        : null;
 
                     // Attach 3–25 random progress for this movie
                     UserMovieProgress::create([
                         'movie_id' => $movie->id,
                         'user_id' => $userId,
                         'watch_status' => $status,
-                        'score' => $status !== 'plan-to-watch' ? $this->faker->numberBetween(1, 10) : null,
+                        'score' => $score,
                         'completed_watching_date' => $completed,
                     ]);
                 }
